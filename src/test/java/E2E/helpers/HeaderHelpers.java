@@ -21,7 +21,7 @@ public class HeaderHelpers {
     private SelenideElement aboutUnsButton = $x("//span[normalize-space()='About Us']");
 
 
-    public void coursesButtonClick() {
+      public void coursesButtonClick() {
         coursesButton.shouldBe(visible, Duration.ofSeconds(10));
         coursesButton.click();
  }
@@ -37,13 +37,16 @@ public class HeaderHelpers {
     }
 
     public void studentDirectoryButtonClick() {
-        studentDirectoryButton.shouldBe(visible, Duration.ofSeconds(10));
+        displayStudentDirectoryButton();
         studentDirectoryButton.click();
     }
 
-    public void signOutButtonClick() {
-        signOutButton.shouldBe(visible, Duration.ofSeconds(10));
-        signOutButton.click();
+    public void displayStudentDirectoryButton() {
+        studentDirectoryButton.shouldBe(visible, Duration.ofSeconds(10));
+    }
+
+    public void displayAvatarButton() {
+        avatarButton.shouldBe(Condition.visible);
     }
 
     public void avatarButtonClick() {
@@ -51,10 +54,15 @@ public class HeaderHelpers {
         avatarButton.click();
     }
 
-    public void displayAvatarButtonn() {
-        avatarButton.shouldBe(Condition.visible);
+    public void signOutButtonClick() {
+        signOutButton.shouldBe(visible, Duration.ofSeconds(10));
+        signOutButton.click();
     }
 
+    public void signOut() {
+        avatarButtonClick();
+        signOutButtonClick();
+    }
     public void nocodeButtonClick() {
         nocodeButton.shouldBe(visible, Duration.ofSeconds(10));
         nocodeButton.click();
@@ -70,8 +78,4 @@ public class HeaderHelpers {
         aboutUnsButton.click();
     }
 
-    public void signOut() {
-      avatarButtonClick();
-      signOutButtonClick();
-    }
 }

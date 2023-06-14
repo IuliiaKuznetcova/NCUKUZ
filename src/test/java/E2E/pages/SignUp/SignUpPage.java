@@ -51,7 +51,6 @@ public class SignUpPage {
     public void selectRoleTeacher() {
         selectYourRole.shouldBe(visible, Duration.ofSeconds(10)).click();
         roleTeacher.shouldBe(visible, Duration.ofSeconds(10)).click();
-
     }
 
     @Step("select Role Student Выбрать роль учителя")

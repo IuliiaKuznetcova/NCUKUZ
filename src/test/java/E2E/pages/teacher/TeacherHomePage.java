@@ -12,7 +12,7 @@ public class TeacherHomePage {
     private SelenideElement addAcourseButton = $x("(//span[normalize-space()='Add a course'])[1]");
 
     @Step("Не отображается кнопка Sign In")
-    public void existAddAcourseButton() {
+    public void existAddAСourseButton() {
         addAcourseButton.shouldBe(Condition.visible);
     }
 
