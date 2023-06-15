@@ -11,13 +11,16 @@ public class AddCourseTest extends BaseTest {
         guestHomePage.clickSignInButton();
         signInPage.loginRoxanne();
         addCoursePage.addCourseButtonClick();
-        addCoursePage.displayAddANewCourseForm();
+    /*    addCoursePage.displayAddANewCourseForm();
         addCoursePage.enterCourseName("Med");
+        addCoursePage.selectFaculty();
         addCoursePage.selectFacultyMedicine();
         addCoursePage.enterCourseDescription("Med Med");
-        addCoursePage.coverPhoto();
-        addCoursePage.select1JuniStartDate();
-        addCoursePage.select30JuniEndtDate();
+        addCoursePage.coverPhoto();*/
+
+        addCoursePage.selectCourseStartDate();
+        //addCoursePage.select1JuniStartDate();
+        //addCoursePage.select30JuniEndtDate();
         addCoursePage.clickAddBatton();
     }
 
