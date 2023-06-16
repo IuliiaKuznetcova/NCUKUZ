@@ -37,7 +37,34 @@ public class CourseHelper extends BaseTest {
         studentDetailsPage.displayStudenFullNameExactData(searchedStudentName);
     }
 
-      @Step("Search Student with check Поиск профессора с проверкой")
+    @Step("Search Student with check Поиск студента с проверкой")
+    public void searchStudentWithCheck1(String searchedStudentName) {
+        studentDirectoryPage.fillFieldSearchOnStudentDirectory(searchedStudentName);
+
+    }
+
+    @Step("Search Student with check Поиск студента с проверкой")
+    public void searchStudentWithCheck2(String searchedStudentName) {
+
+        studentDirectoryPage.searchResultStudentDisplayExactData(searchedStudentName);
+
+    }
+
+    @Step("Search Student with check Поиск студента с проверкой")
+    public void searchStudentWithCheck3() {
+
+        studentDirectoryPage.viewProfileButtonClick();
+
+    }
+
+    @Step("Search Student with check Поиск студента с проверкой")
+    public void searchStudentWithCheck4(String searchedStudentName) {
+
+        studentDetailsPage.displayStudenFullNameExactData(searchedStudentName);
+    }
+
+
+    @Step("Search Student with check Поиск профессора с проверкой")
     public void searchProfessorWithCheck(String searchedProfessorName) throws InterruptedException {
         studentDirectoryPage.fillFieldSearchOnProfessorDirectory(searchedProfessorName);
         studentDirectoryPage.searchResultProfessorDisplayExactData(searchedProfessorName);

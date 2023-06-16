@@ -11,7 +11,8 @@ import static com.codeborne.selenide.Selenide.$x;
 public class StudetnDirectoryPage {
     private SelenideElement welcomeTextOnStudentPage = $x("//h1[normalize-space()='Welcome to our']");
     private SelenideElement fieldSearchOnStudentDirectory = $x("//*[@id=\":r0:\"]");
-    private SelenideElement searchResultOnStudentDirectoryFullName = $x("(//div[@class='list-item-wrapper MuiBox-root css-mza73d'])[1]");
+    //private SelenideElement searchResultOnStudentDirectoryFullName = $x("(//div[@class='list-item-wrapper MuiBox-root css-mza73d'])[1]");
+    private SelenideElement searchResultOnStudentDirectoryFullName = $x("//*[@id=\"student-directory\"]/section/div/div[2]/div/div/div/div/div/div[1]/div[1]");
     private SelenideElement searchResultOnProfessorDirectoryFullName = $x("//*[@id=\"teacher-spotlight-logged-in\"]/section/div/div[2]/div/div/div/div/div/div[1]/div[1]");
     private SelenideElement searchResultOnStudentDirectoryEmail = $x("(//p[@class='sw-font-size-m sw-text-color-0146b1 sw-font-family-default sw-font-weight-normal sw-text-align-left sw-letter-spacing-normal sw-padding-top-6xs sw-padding-bottom-6xs sw-padding-left-none sw-padding-right-none '])[1]");
     private SelenideElement scroll = $x(" //*[@id=\"home-footer\"]/section/div/div[3]/div[1]/small");

@@ -1,10 +1,17 @@
 package E2E.pages.teacher;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
+
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byCssSelector;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AddCoursePage {
@@ -20,45 +27,14 @@ public class AddCoursePage {
     private SelenideElement sciencesFaculty = $x("(//li[normalize-space()='Sciences'])[1]");
     private SelenideElement lawFaculty = $x("(//li[normalize-space()='Law'])[1]");
     private SelenideElement artsFaculty = $x("(//li[normalize-space()='Arts, Design & Architecture'])[1]");
-    private SelenideElement courseDescriptionField  = $x("(//textarea[@id='course-documents-form-Description-1634506682'])[1]");
-    private SelenideElement coverPhoto = $x("(//input[@id='course-documents-form-CoverPhoto-1704715303'])[1]");
+    private SelenideElement courseDescriptionField = $x("(//textarea[@id='course-documents-form-Description-1634506682'])[1]");
+    private SelenideElement coverPhotoField = $x("(//input[@id='course-documents-form-CoverPhoto-1704715303'])[1]");
     private SelenideElement courseStartDate = $x("(//input[@id='course-documents-form-Startdate-831849774'])[1]");
-   // private SelenideElement juni1StartDate = $x("(//button[contains(@class,'rdrDay rdrDayStartOfMonth')])[1]");
+    // private SelenideElement juni1StartDate = $x("(//button[contains(@class,'rdrDay rdrDayStartOfMonth')])[1]");
     private SelenideElement courseEndDate = $x("(//input[@id='course-documents-form-Enddate-1271684309'])[1]");
     private SelenideElement monthBox = $x("(//div[@class='rdrMonth'])[1]");
-   // private SelenideElement juni30EndDate = $x("(//span[contains(@class,'rdrDayStartPreview rdrDayEndPreview')])[1]");
-    private SelenideElement addBatton= $x("(//button[normalize-space()='Add'])[1]");
-
-    @Step("Click the button Add Course Нажать кнопку ДОбавить курс")
-    public void selectCourseStartDate() {
-        courseStartDate.click();
-        String dateToSelect = "10"; // Пример даты, которую нужно выбрать
-        String dateSelector = monthBox + dateToSelect + "']";
-        $(byCssSelector(dateSelector)).click();
-    }
-
-/*    public static void SetDatepicker(String datepickerSelector, String dateToSelect) {
-        // найти элемент поля выбора даты
-        SelenideElement datepicker = $(byCssSelector(datepickerSelector));
-
-        // ввести дату
-        datepicker.setValue(dateToSelect);}
-
-    @Step("Click the button Add Course Нажать кнопку ДОбавить курс")
-    public void selectCourseStartDate() {
-        courseStartDate.click();
-        switchTo().frame(monthBox);
-        SetDatepicker("#datepicker", "10");
-    }*/
-
-
-
-
-    @Step("Click the button Add Course Нажать кнопку ДОбавить курс")
-    public void addCourseButtonClick() {
-        addCourseButton.shouldBe(visible, Duration.ofSeconds(10)).click();
-    }
-
+    // private SelenideElement juni30EndDate = $x("(//span[contains(@class,'rdrDayStartPreview rdrDayEndPreview')])[1]");
+    private SelenideElement addBatton = $x("(//button[normalize-space()='Add'])[1]");
 
     @Step("Display Add new Course Form  Отображение формы регистрации")
     public void displayAddANewCourseForm() {
@@ -69,17 +45,11 @@ public class AddCoursePage {
     public void enterCourseName(String courseName) {
         courseNameField.shouldBe(visible, Duration.ofSeconds(10)).setValue(courseName);
     }
-    // TODO выбор любого факультета
 
-    @Step("select Faculty Medicine Выбрать факультета медицины")
+    @Step("select Faculty")
     public void selectFaculty() {
-        selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
-
-    }
-    @Step("select Faculty Medicine Выбрать факультета медицины")
-    public void selectFacultyMedicine() {
-        //selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
-        medicineFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
+        clickSelectFaculty();
+        selectFacultyMedicine();
     }
 
     @Step("Enter Course description Введение описания курса")
@@ -90,28 +60,87 @@ public class AddCoursePage {
     @Step("Cover photo Прикрепить фото")
     public void coverPhoto() {
         String filePath = "E:/Autotesting/NCUKUZ/src/test/resources/opi.png";
-        coverPhoto.sendKeys(filePath);
+        coverPhotoField.sendKeys(filePath);
     }
 
- /*    @Step("Select Course start date Выбор даты начала курса")
-    public void selectCourseStartDate() {
-        courseStartDate.click();
-    }*/
-
-    //$(byCssSelector(datePickerSelector)).setValue(dateValue);
-   /* @Step("Select 1 Juni Start DateCourse start date выбор начала курса 1 июня")
-    public void select1JuniStartDate() {
-        juni1StartDate.click();
+        @Step("Select Course Start Date Выбрать дату начала курса")
+    public void selectCourseStartDate(String startData) {
+        clickCourseStartDate();
+        selectDate(startData);
     }
 
-    @Step("Select 30 Juni DateCourse End date Выбор окончания курса 30 июня")
-    public void select30JuniEndtDate() {
-        juni30EndDate.click();
-    }*/
+    @Step("Select Course End Date Выбрать дату окончания курса")
+    public void selectCourseEndDate(String endData) {
+        clickCourseEndDate();
+        selectDate(endData);
+    }
+
+    @Step("Click the button Add Course Нажать кнопку ДОбавить курс")
+    public void addCourseButtonClick() {
+        addCourseButton.shouldBe(visible, Duration.ofSeconds(10)).click();
+    }
+
+    @Step("select Faculty")
+    public void clickSelectFaculty() {
+        selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
+    }
+    // TODO выбор любого факультета
+    @Step("select Faculty Medicine Выбрать факультета медицины")
+    public void selectFacultyMedicine() {
+        //selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
+        medicineFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
+    }
 
     @Step("Click the button Add Нажать кнопку Добавить")
     public void clickAddBatton() {
         addBatton.shouldBe(visible, Duration.ofSeconds(10)).click();
+        Selenide.sleep(5000);
     }
+
+    @Step("Проверка того, что кнопка зеленая")
+    public void checkAddCourse() {
+        // addBatton.shouldHave(cssValue("background-color", "green"));
+        String colorOfBatton = addBatton.getCssValue("background-color:#2c2921");
+        addBatton.click();
+        addBatton.shouldNotHave(Condition.attribute("background-color:#2c2921", colorOfBatton));
+    }
+
+    @Step("Click the field Add Course Нажать поле Выбрать дату начала курса")
+    public void clickCourseStartDate() {
+        courseStartDate.click();
+    }
+
+    @Step("Click the field Add Course Нажать поле Выбрать дату окончания курса")
+    public void clickCourseEndDate() {
+        courseEndDate.click();
+    }
+
+    //______________________
+    public void selectDate(String date) {
+        // Parse the date
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        String dayOfMonth = String.valueOf(localDate.getDayOfMonth());
+
+        // Select the year and month
+        while (true) {
+            SelenideElement displayedDate = $("ul.month-year-header li:nth-child(2)");
+            String[] displayedDateParts = displayedDate.text().split(" ");
+            int displayedYear = Integer.parseInt(displayedDateParts[1]);
+            String displayedMonth = displayedDateParts[0];
+            String monthName = localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.US);
+            if (displayedYear < localDate.getYear() || (displayedYear == localDate.getYear() && !displayedMonth.equals(monthName))) {
+                $("ul.month-year-header li:nth-child(3) svg:first-child").click(); // Click the right arrow
+            } else {
+                break;
+            }
+        }
+
+        // Select the day
+        $$("button.rdrDay span.rdrDayNumber span").filter(Condition.text(dayOfMonth)).get(0).click();
+    }
+
 }
+
+
 

@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class HomePageHelpers {
 
     private SelenideElement professorSpotlightTittle = $x("(//span[normalize-space()='Professor spotlight'])[1]");
+    private SelenideElement professorDirectoryButton = $x("(//span[normalize-space()='Professors'])[1]");
     private SelenideElement checkOutOurCoursesTitle = $x("/html[1]/body[1]/div[1]/div[2]/section[1]/div[1]/div[1]/p[1]");
     private SelenideElement noCodeUniversityAtAGlanceTitle = $x("/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/h2[1]");
 

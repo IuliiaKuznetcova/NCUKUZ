@@ -5,11 +5,11 @@ import E2E.helpers.HeaderHelpers;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
-public class SearchTests extends BaseTest{
+public class SearchTests extends BaseTest {
     CourseHelper courseHelper = new CourseHelper();
     private String emailMalik = PropertiesLoader.loadProperties("emailMalik");
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
-   // TeacherDirectoryPage teacherDirectoryPage = new TeacherDirectoryPage();
+    // TeacherDirectoryPage teacherDirectoryPage = new TeacherDirectoryPage();
 
     @Test
     public void searchInformationAboutThisCourseGrowthMarketing() throws InterruptedException {
@@ -17,16 +17,15 @@ public class SearchTests extends BaseTest{
         signInPage.loginMalik(emailMalik, passwordMalik);
         studentHomePage.goToCoursesPage();
         studentCourseList.displayOurCoursesTitle("Our courses");
-        courseHelper.searchCourseWithCheck("Growth Marketing");
-       // TODO Найти курс с любым названием courseHelper.searchCourseWithCheck("QA");
-        Thread.sleep(1000);
+        //courseHelper.searchCourseWithCheck("Growth Marketing");
+        courseHelper.searchCourseWithCheck("QA");
+        // TODO Найти курс с любым названием courseHelper.searchCourseWithCheck("QA");
         studentGrowthMarketingCourseDetails.tyknutTut();
-        Thread.sleep(1000);
         studentGrowthMarketingCourseDetails.viewAboutThisCourse();
-        Thread.sleep(1000);
+
     }
 
-       @Test
+    @Test
     public void searchForTeacherInTheCourseGrowthMarketing() throws InterruptedException {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
@@ -43,7 +42,7 @@ public class SearchTests extends BaseTest{
         signInPage.loginMalik(emailMalik, passwordMalik);
         headerHelpers.studentDirectoryButtonClick();
         studentDirectoryPage.displayWelcomeTextOnStudentPage();
-        //courseHelper.searchStudentWithCheck("Michael Thomas");
+        courseHelper.searchStudentWithCheck("Michael Thomas");
         headerHelpers.studentDirectoryButtonClick();
         headerHelpers.signOut();
     }
@@ -57,10 +56,9 @@ public class SearchTests extends BaseTest{
         Thread.sleep(1000);
         headerHelpers.professorButtonClick();
         Thread.sleep(1000);
-        studentHomePage.displayTitleProfessorSpotlight();
+        homePageHelpers.displayTitleProfessorSpotlight();
         courseHelper.searchProfessorWithCheck("Marie Curie");
         headerHelpers.studentDirectoryButtonClick();
         headerHelpers.signOut();
     }
-
 }

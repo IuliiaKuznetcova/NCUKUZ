@@ -15,14 +15,20 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class StudentGrowthMarketingCourseDetails {
+public class StudentCourseDetails {
 
-    private SelenideElement growthMarketingTitleCourse = $x("//h3[normalize-space()='Growth Marketing']");
+
+   //private SelenideElement growthMarketingTitleCourse = $x("//h3[normalize-space()='Growth Marketing']");
+   private SelenideElement courseTitle = $x("//*[@id=\"course-list\"]/section/div/div/div[2]/div/div/div[1]/div/div/div");
     private SelenideElement uploadCourseMaterialButton = $x("(//button[normalize-space()='Upload'])[1]");
-    private SelenideElement aboutThisCourse = $(byText("About this course"));
-    private ElementsCollection courseInformationWidget = $$(By.className("MuiGrid-container")).get(1)
-            .$$(By.className("MuiGrid-item"));
-    private SelenideElement tyknut = $x("(//a)[8]");
+    private SelenideElement neueDescription = $x("(//div[contains(@class,'list-field-element MuiBox-root css-1qw4ra5')])[4]");
+
+     private SelenideElement aboutThisCourse = $(byText("About this course"));
+
+
+    private ElementsCollection courseInformationWidget = $$(By.className("MuiGrid-container")).get(1).$$(By.className("MuiGrid-item"));
+    //private SelenideElement tyknut = $x("(//a)[8]");
+    private SelenideElement firstCourse = $$(By.className("MuiGrid-container")).get(1).$$(By.className("MuiGrid-item")).get(0).find("a");
 
     @Step("Dysplay course information  Отображение информации об учителях курса")
     public void dysplayngInformationAboutCourseTiecher() {
@@ -46,8 +52,8 @@ public class StudentGrowthMarketingCourseDetails {
 
     @Step("Display Title Course Отображение названия курса")
     public void displayTitleCourse(String courseName) throws InterruptedException {
-        growthMarketingTitleCourse.shouldHave(text(courseName));
-        growthMarketingTitleCourse.shouldBe(visible, Duration.ofSeconds(10));
+        courseTitle.shouldHave(text(courseName));
+        courseTitle.shouldBe(visible, Duration.ofSeconds(10));
         Thread.sleep(1000);
     }
 
@@ -68,7 +74,7 @@ public class StudentGrowthMarketingCourseDetails {
 
     @Step("Кликнуть на курс из результата поиска")
     public void tyknutTut() throws InterruptedException {
-        tyknut.click();
+        firstCourse.click();
         Thread.sleep(1000);
     }
 }

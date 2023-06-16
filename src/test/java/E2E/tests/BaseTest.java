@@ -8,6 +8,7 @@ import E2E.pages.guest.SearchPage;
 import E2E.pages.signIn.SignInPage;
 import E2E.pages.student.*;
 import E2E.pages.teacher.AddCoursePage;
+import E2E.pages.teacher.EditCourse;
 import E2E.pages.teacher.TeacherHomePage;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
@@ -15,7 +16,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import utils.PropertiesLoader;
@@ -52,19 +52,19 @@ public class BaseTest {
         scroll.scrollIntoView(false);
     }
 
-    protected SearchPage searchPage = new SearchPage();
+    protected EditCourse editCourse = new EditCourse();
+     protected SearchPage searchPage = new SearchPage();
     protected SignInPage signInPage = new SignInPage();
     protected SignUpPage signUpPage = new SignUpPage();
     protected HeaderHelpers headerHelpers = new HeaderHelpers();
-
     protected AddCoursePage addCoursePage = new AddCoursePage();
-
     protected StudentDetailsPage studentDetailsPage = new StudentDetailsPage();
     protected StudentHomePage studentHomePage = new StudentHomePage();
+    protected TeacherHomePage teacherHomePage = new TeacherHomePage();
     protected StudetnDirectoryPage studentDirectoryPage = new StudetnDirectoryPage();
     protected HomePageHelpers homePageHelpers = new HomePageHelpers();
     protected GuestHomePage guestHomePage = new GuestHomePage();
-    protected TeacherHomePage teacherHomePage = new TeacherHomePage();
     protected StudentCourseList studentCourseList = new StudentCourseList();
-    protected StudentGrowthMarketingCourseDetails studentGrowthMarketingCourseDetails = new StudentGrowthMarketingCourseDetails();
+    protected StudentCourseDetails studentGrowthMarketingCourseDetails = new StudentCourseDetails();
+
 }
