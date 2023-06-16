@@ -18,7 +18,7 @@ public class SearchTests extends BaseTest {
         studentHomePage.goToCoursesPage();
         studentCourseList.displayOurCoursesTitle("Our courses");
         //courseHelper.searchCourseWithCheck("Growth Marketing");
-        courseHelper.searchCourseWithCheck("QA");
+        courseHelper.searchCourseWithCheck("Ras");
         // TODO Найти курс с любым названием courseHelper.searchCourseWithCheck("QA");
         studentGrowthMarketingCourseDetails.tyknutTut();
         studentGrowthMarketingCourseDetails.viewAboutThisCourse();
@@ -47,9 +47,7 @@ public class SearchTests extends BaseTest {
         headerHelpers.signOut();
     }
 
-    // TODO не кликает на кнопку
-
-    @Test
+       @Test
     public void searchForAnExistingProfessor() throws InterruptedException {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);

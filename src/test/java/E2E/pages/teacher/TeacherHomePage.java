@@ -1,6 +1,7 @@
 package E2E.pages.teacher;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -24,6 +25,7 @@ public class TeacherHomePage {
     @Step("Go to Courses Page  Переход к странице Courses")
     public void goToCoursesPage() throws InterruptedException {
         coursesButton.click();
+        Thread.sleep(1000);
         coursesButton.shouldBe(visible, Duration.ofSeconds(10));
         Thread.sleep(1000);
         coursesLIstButton.click();

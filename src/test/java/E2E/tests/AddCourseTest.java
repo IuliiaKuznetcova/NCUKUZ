@@ -1,6 +1,7 @@
 package E2E.tests;
 
 import E2E.helpers.CourseHelper;
+import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
@@ -32,9 +33,9 @@ import utils.PropertiesLoader;
             signInPage.loginRoxanne();
             addCoursePage.addCourseButtonClick();
             addCoursePage.displayAddANewCourseForm();
-            addCoursePage.enterCourseName("MedMed");
+            addCoursePage.enterCourseName("RasRas");
             addCoursePage.selectFaculty();
-            addCoursePage.enterCourseDescription("Med Med");
+            addCoursePage.enterCourseDescription("rasras");
             addCoursePage.coverPhoto();
             addCoursePage.selectCourseStartDate("15-08-2023");
             addCoursePage.selectCourseEndDate("28-08-2023");
@@ -66,5 +67,29 @@ import utils.PropertiesLoader;
             studentGrowthMarketingCourseDetails.tyknutTut();
             studentGrowthMarketingCourseDetails.viewAboutThisCourse();
         }
+
+        @Test
+        public void addAndEditCourseTestWithChecking() throws InterruptedException {
+            guestHomePage.clickSignInButton();
+            signInPage.loginRoxanne();
+            Selenide.sleep(5000);
+            addCoursePage.addCourseButtonClick();
+            addCoursePage.displayAddANewCourseForm();
+            addCoursePage.enterCourseName("MedMed");
+            addCoursePage.selectFaculty();
+            addCoursePage.enterCourseDescription("Med Med");
+            addCoursePage.coverPhoto();
+            addCoursePage.selectCourseStartDate("15-08-2023");
+            addCoursePage.selectCourseEndDate("28-08-2023");
+            addCoursePage.clickAddBatton();
+            teacherHomePage.goToCoursesPage();
+            courseHelper.searchCourseWithCheck("Med");
+            studentGrowthMarketingCourseDetails.tyknutTut();
+            editCourse.editCourseButtonClick();
+            editCourse.displayEditRecordForm();
+            editCourse.editCourseName("Medicine");
+            editCourse.clickSaveBatton();
+        }
+
     }
 

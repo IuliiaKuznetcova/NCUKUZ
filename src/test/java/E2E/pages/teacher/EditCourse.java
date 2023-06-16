@@ -21,10 +21,11 @@ public class EditCourse {
     private SelenideElement courseDescriptionField = $x("(//div[@class='ProseMirror toastui-editor-contents'])[1]");
     private SelenideElement teacherField = $x("(//div[@class='selectize-input items not-full has-options has-items'])[1]");
     private SelenideElement documentNameField = $x("(//div[@class='selectize-input items not-full has-options has-items'])[2]");
-    private SelenideElement coverPhotoField = $x(" (//input[@id='fld48q8Qjx5hyMNDc-input'])[1]");
+    private SelenideElement coverPhotoField = $x("//*[@id=\"fld48q8Qjx5hyMNDc-input\"]");
     private SelenideElement deletePhotoBatton = $x(" (//span[@class='delete'])[1]");
-    private SelenideElement cancelBatton = $x("(//button[@aria-label='Close this dialog window'][normalize-space()='Cancel'])[1]");
-    private SelenideElement saveBatton = $x("(//button[@aria-label='Close this dialog window'][normalize-space()='Cancel'])[1]");
+    private SelenideElement cancelBatton = $x("(//button[normalize-space()='Cancel'])[1]");
+    //private SelenideElement saveBatton = $x("(//button[normalize-space()='Save'])[1]");
+    private SelenideElement saveBatton = $x("(/button[normalize-space()='Save'])[1]");
     private SelenideElement courseStartDate = $x("(//input[@name='Start date'])[1]");
     private SelenideElement courseEndDate = $x("(//input[@name='Start date'])[1]");
 
@@ -56,7 +57,10 @@ public class EditCourse {
     @Step("Edit Course Start Date Выбрать дату начала курса")
     public void editCourseStartDate(String startData) {
         clickCourseStartDate();
+
+        Selenide.sleep(1000);
         selectDate(startData);
+        Selenide.sleep(1000);
     }
 
     @Step("Edit Course End Date Выбрать дату окончания курса")
@@ -103,6 +107,7 @@ public class EditCourse {
     @Step("Click the field Add Course Нажать поле Выбрать дату начала курса")
     public void clickCourseStartDate() {
         courseStartDate.click();
+        cancelBatton.setValue("\u0003");
     }
 
     @Step("Click the field Add Course Нажать поле Выбрать дату окончания курса")

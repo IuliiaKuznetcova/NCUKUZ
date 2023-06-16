@@ -11,8 +11,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -91,6 +90,8 @@ public class StudentCourseList  {
     @Step("Search result on course list page  Результат поиска на странице Сourse list")
     public void searchResultDisplayExactData(String courseName) {
         searchResultOnCourseList.shouldHave(Condition.text(courseName));
+        //searchResultOnCourseList.shouldHave(exactText(courseName));
+        // TODO для поиска по конкретному слову нужно найти локатор коллекции
     }
 
     @Step("Go to a course from a search result  Переход к курсу из результата поиска")

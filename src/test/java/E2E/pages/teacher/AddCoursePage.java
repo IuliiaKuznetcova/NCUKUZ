@@ -59,7 +59,7 @@ public class AddCoursePage {
 
     @Step("Cover photo Прикрепить фото")
     public void coverPhoto() {
-        String filePath = "E:/Autotesting/NCUKUZ/src/test/resources/opi.png";
+        String filePath = "E:/Autotesting/NCUKUZ/src/test/resources/ras.jfif";
         coverPhotoField.sendKeys(filePath);
     }
 
@@ -94,7 +94,7 @@ public class AddCoursePage {
     @Step("Click the button Add Нажать кнопку Добавить")
     public void clickAddBatton() {
         addBatton.shouldBe(visible, Duration.ofSeconds(10)).click();
-        Selenide.sleep(5000);
+        Selenide.sleep(7000);
     }
 
     @Step("Проверка того, что кнопка зеленая")

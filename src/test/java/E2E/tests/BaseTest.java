@@ -10,6 +10,7 @@ import E2E.pages.student.*;
 import E2E.pages.teacher.AddCoursePage;
 import E2E.pages.teacher.EditCourse;
 import E2E.pages.teacher.TeacherHomePage;
+import E2E.pages.teacher.UploadCourseMaterial;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -52,6 +53,7 @@ public class BaseTest {
         scroll.scrollIntoView(false);
     }
 
+    protected UploadCourseMaterial uploadCourseMaterial = new UploadCourseMaterial();
     protected EditCourse editCourse = new EditCourse();
      protected SearchPage searchPage = new SearchPage();
     protected SignInPage signInPage = new SignInPage();
