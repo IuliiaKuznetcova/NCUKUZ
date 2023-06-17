@@ -42,8 +42,8 @@ import utils.PropertiesLoader;
             addCoursePage.clickAddBatton();
             teacherHomePage.goToCoursesPage();
             courseHelper.searchCourseWithCheck("Med");
-            studentGrowthMarketingCourseDetails.tyknutTut();
-            studentGrowthMarketingCourseDetails.viewAboutThisCourse();
+            studentCourseDetails.tyknutTut();
+            studentCourseDetails.viewAboutThisCourse();
         }
 
         @Test
@@ -64,8 +64,8 @@ import utils.PropertiesLoader;
             signInPage.loginMalik(emailMalik, passwordMalik);
             studentHomePage.goToCoursesPage();
             courseHelper.searchCourseWithCheck("Med");
-            studentGrowthMarketingCourseDetails.tyknutTut();
-            studentGrowthMarketingCourseDetails.viewAboutThisCourse();
+            studentCourseDetails.tyknutTut();
+            studentCourseDetails.viewAboutThisCourse();
         }
 
         @Test
@@ -84,7 +84,7 @@ import utils.PropertiesLoader;
             addCoursePage.clickAddBatton();
             teacherHomePage.goToCoursesPage();
             courseHelper.searchCourseWithCheck("Med");
-            studentGrowthMarketingCourseDetails.tyknutTut();
+            studentCourseDetails.tyknutTut();
             editCourse.editCourseButtonClick();
             editCourse.displayEditRecordForm();
             editCourse.editCourseName("Medicine");

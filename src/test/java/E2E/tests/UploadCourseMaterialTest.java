@@ -16,11 +16,10 @@ public class UploadCourseMaterialTest extends BaseTest {
         Selenide.sleep(3000);
         teacherHomePage.goToCoursesPage();
         courseHelper.searchCourseWithCheck("QA test");
-        studentGrowthMarketingCourseDetails.tyknutTut();
+        studentCourseDetails.tyknutTut();
         uploadCourseMaterial.displayuploadCourseMaterialTitel();
         uploadCourseMaterial.enterDocumentName("Document");
         uploadCourseMaterial.uploadDocument("E:/Autotesting/NCUKUZ/src/test/resources/123.png");
         uploadCourseMaterial.clickUploadBatton();
-
     }
 }

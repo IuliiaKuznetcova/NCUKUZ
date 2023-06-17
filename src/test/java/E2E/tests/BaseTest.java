@@ -67,6 +67,6 @@ public class BaseTest {
     protected HomePageHelpers homePageHelpers = new HomePageHelpers();
     protected GuestHomePage guestHomePage = new GuestHomePage();
     protected StudentCourseList studentCourseList = new StudentCourseList();
-    protected StudentCourseDetails studentGrowthMarketingCourseDetails = new StudentCourseDetails();
+    protected StudentCourseDetails studentCourseDetails = new StudentCourseDetails();
 
 }

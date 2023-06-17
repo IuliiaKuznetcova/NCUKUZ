@@ -2,10 +2,14 @@ package E2E.pages.student;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +26,14 @@ public class StudentCourseDetails {
    private SelenideElement courseTitle = $x("//*[@id=\"course-list\"]/section/div/div/div[2]/div/div/div[1]/div/div/div");
     private SelenideElement uploadCourseMaterialButton = $x("(//button[normalize-space()='Upload'])[1]");
     private SelenideElement neueDescription = $x("(//div[contains(@class,'list-field-element MuiBox-root css-1qw4ra5')])[4]");
-
      private SelenideElement aboutThisCourse = $(byText("About this course"));
-
-
     private ElementsCollection courseInformationWidget = $$(By.className("MuiGrid-container")).get(1).$$(By.className("MuiGrid-item"));
     //private SelenideElement tyknut = $x("(//a)[8]");
     private SelenideElement firstCourse = $$(By.className("MuiGrid-container")).get(1).$$(By.className("MuiGrid-item")).get(0).find("a");
+
+    private SelenideElement courseMaterialTitle = $x("(//h2[normalize-space()='Course material'])[1]");
+    private SelenideElement downloadLink = $x("(//div[contains(text(),'Growth Marketing Course Document.pdf')])[1]");
+
 
     @Step("Dysplay course information  Отображение информации об учителях курса")
     public void dysplayngInformationAboutCourseTiecher() {
@@ -51,10 +56,10 @@ public class StudentCourseDetails {
     }
 
     @Step("Display Title Course Отображение названия курса")
-    public void displayTitleCourse(String courseName) throws InterruptedException {
+    public void displayTitleCourse(String courseName)  {
         courseTitle.shouldHave(text(courseName));
         courseTitle.shouldBe(visible, Duration.ofSeconds(10));
-        Thread.sleep(1000);
+        Selenide.sleep(1000);
     }
 
     @Step("Exists Upload Course Material Button  Присутствует кнопка Upload в разделе материалов курса")
@@ -73,9 +78,30 @@ public class StudentCourseDetails {
     }
 
     @Step("Кликнуть на курс из результата поиска")
-    public void tyknutTut() throws InterruptedException {
+    public void tyknutTut()  {
         firstCourse.click();
-        Thread.sleep(1000);
+        Selenide.sleep(1000);
+    }
+
+    @Step("Cкачать документ по ссылке")
+public void downloadDocument1()  {
+       // courseTitle.shouldHave(text(documentName)).shouldBe(visible, Duration.ofSeconds(10));
+      /*  File downloadedFile = downloadLink.download();
+        if (downloadedFile.exists()) {
+            System.out.println("Файл успешно загружен");
+        } else {
+            System.out.println("Загруженный файл не найден");
+        }*/
+    }
+public void downloadDocument () throws FileNotFoundException {
+    SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687046400000/8-lu83W2yV-wZsn1D2wz5w/IJcnFqy97LD82i8ghBWFqExgvj86iZD2CGD3_qYyBQXjFQfgZb-AC72qyxpVPOKka21Og3jtu2p4hywzg7ei_1rzWtVlG_6nQeTPOCaIqZM/IHgbt0lNJbJ8x5wo8Kl6JINKcs2CC13PtdgruBT_8gE']");
+    File downloadedFile = downloadDocument.download();
+    if (downloadedFile.exists()) {
+        System.out.println("Файл успешно загружен");
+    } else {
+        System.out.println("Загруженный файл не найден");
     }
 }
+    }
+
 

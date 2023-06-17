@@ -1,10 +1,7 @@
 package E2E.helpers;
 
 import E2E.tests.BaseTest;
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
-
-import static com.codeborne.selenide.Condition.text;
 
 public class CourseHelper extends BaseTest {
     @Step("Search course with check Поиск курса с проверкой")
@@ -12,7 +9,7 @@ public class CourseHelper extends BaseTest {
         studentCourseList.fillFieldSearch(courseName);
         studentCourseList.searchResultDisplayExactData(courseName);
         studentCourseList.goToCourseFromSearchResult(courseName);
-        studentGrowthMarketingCourseDetails.displayTitleCourse(courseName);
+        studentCourseDetails.displayTitleCourse(courseName);
         //studentGrowthMarketingCourseDetails.displayTitleCourse(String.valueOf(text(courseName)));
     }
 

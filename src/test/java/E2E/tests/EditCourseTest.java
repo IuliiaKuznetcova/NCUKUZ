@@ -17,7 +17,7 @@ public class EditCourseTest extends BaseTest {
         Selenide.sleep(3000);
         teacherHomePage.goToCoursesPage();
         courseHelper.searchCourseWithCheck("QA test");
-        studentGrowthMarketingCourseDetails.tyknutTut();
+        studentCourseDetails.tyknutTut();
         editCourse.editCourseButtonClick();
        editCourse.displayEditRecordForm();
        editCourse.editCourseName("Doooon't QA test");
@@ -34,7 +34,7 @@ public class EditCourseTest extends BaseTest {
         Selenide.sleep(3000);
         teacherHomePage.goToCoursesPage();
         courseHelper.searchCourseWithCheck("QA");
-        studentGrowthMarketingCourseDetails.tyknutTut();
+        studentCourseDetails.tyknutTut();
         editCourse.editCourseButtonClick();
         editCourse.displayEditRecordForm();
         editCourse.editCourseName("Doooon't QA");
@@ -44,8 +44,8 @@ public class EditCourseTest extends BaseTest {
         signInPage.loginMalik(emailMalik, passwordMalik);
         studentHomePage.goToCoursesPage();
         courseHelper.searchCourseWithCheck("Med");
-        studentGrowthMarketingCourseDetails.tyknutTut();
-        studentGrowthMarketingCourseDetails.viewAboutThisCourse();
+        studentCourseDetails.tyknutTut();
+        studentCourseDetails.viewAboutThisCourse();
     }
 
 }

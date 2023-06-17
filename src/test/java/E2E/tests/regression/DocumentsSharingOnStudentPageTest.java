@@ -26,7 +26,7 @@ public class DocumentsSharingOnStudentPageTest extends BaseTest {
         studentCourseList.discoverMoreButtonClick();
         studentCourseList.goToGrowthMarketingCourse();
         scrollPageToElement2023NoCode();
-        studentGrowthMarketingCourseDetails.notExistsUploadCourseMaterialButton("Upload");
+        studentCourseDetails.notExistsUploadCourseMaterialButton("Upload");
     }
     // TODO
     //  code functionality check
@@ -44,7 +44,7 @@ public class DocumentsSharingOnStudentPageTest extends BaseTest {
         courseHelper.searchCourseWithCheck("Growth Marketing");
         studentCourseList.goToGrowthMarketingCourse();
         scrollPageToElement2023NoCode();
-        studentGrowthMarketingCourseDetails.notExistsUploadCourseMaterialButton("Upload");
+        studentCourseDetails.notExistsUploadCourseMaterialButton("Upload");
     }
 }
 

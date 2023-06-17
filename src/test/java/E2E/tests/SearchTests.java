@@ -1,9 +1,10 @@
 package E2E.tests;
 
 import E2E.helpers.CourseHelper;
-import E2E.helpers.HeaderHelpers;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
+
+import java.io.FileNotFoundException;
 
 public class SearchTests extends BaseTest {
     CourseHelper courseHelper = new CourseHelper();
@@ -20,8 +21,8 @@ public class SearchTests extends BaseTest {
         //courseHelper.searchCourseWithCheck("Growth Marketing");
         courseHelper.searchCourseWithCheck("Ras");
         // TODO Найти курс с любым названием courseHelper.searchCourseWithCheck("QA");
-        studentGrowthMarketingCourseDetails.tyknutTut();
-        studentGrowthMarketingCourseDetails.viewAboutThisCourse();
+        studentCourseDetails.tyknutTut();
+        studentCourseDetails.viewAboutThisCourse();
 
     }
 
@@ -31,8 +32,8 @@ public class SearchTests extends BaseTest {
         signInPage.loginMalik(emailMalik, passwordMalik);
         studentHomePage.goToCoursesPage();
         courseHelper.searchCourseWithCheck("Growth Marketing");
-        studentGrowthMarketingCourseDetails.tyknutTut();
-        studentGrowthMarketingCourseDetails.viewAboutThisCourse();
+        studentCourseDetails.tyknutTut();
+        studentCourseDetails.viewAboutThisCourse();
         // TODO сделать проверку на содержание раздела с преподавателями
     }
 
@@ -58,5 +59,17 @@ public class SearchTests extends BaseTest {
         courseHelper.searchProfessorWithCheck("Marie Curie");
         headerHelpers.studentDirectoryButtonClick();
         headerHelpers.signOut();
+    }
+
+    @Test
+    public void download () throws InterruptedException, FileNotFoundException {
+        guestHomePage.clickSignInButton();
+        signInPage.loginMalik(emailMalik, passwordMalik);
+        studentHomePage.goToCoursesPage();
+        courseHelper.searchCourseWithCheck("Growth Marketing");
+        studentCourseDetails.tyknutTut();
+        //studentGrowthMarketingCourseDetails.viewAboutThisCourse();
+        studentCourseDetails.downloadDocument();
+        // TODO сделать проверку на содержание раздела с преподавателями
     }
 }
