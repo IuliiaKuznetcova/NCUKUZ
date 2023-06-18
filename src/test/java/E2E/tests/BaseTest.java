@@ -4,7 +4,6 @@ import E2E.helpers.HeaderHelpers;
 import E2E.helpers.HomePageHelpers;
 import E2E.pages.SignUp.SignUpPage;
 import E2E.pages.guest.GuestHomePage;
-import E2E.pages.guest.SearchPage;
 import E2E.pages.signIn.SignInPage;
 import E2E.pages.student.*;
 import E2E.pages.teacher.AddCoursePage;
@@ -25,8 +24,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
 
-
-    //final static String BASE_URI = "https://jere237.softr.app/";
     final String BASE_URI = PropertiesLoader.loadProperties("url");
     final SelenideElement scroll = $x(" //*[@id=\"home-footer\"]/section/div/div[3]/div[1]/small");
 
@@ -41,8 +38,6 @@ public class BaseTest {
         open(BASE_URI);
     }
 
-
-
     @AfterMethod
     public void tearDown() {
         closeWebDriver();
@@ -55,7 +50,6 @@ public class BaseTest {
 
     protected UploadCourseMaterial uploadCourseMaterial = new UploadCourseMaterial();
     protected EditCourse editCourse = new EditCourse();
-     protected SearchPage searchPage = new SearchPage();
     protected SignInPage signInPage = new SignInPage();
     protected SignUpPage signUpPage = new SignUpPage();
     protected HeaderHelpers headerHelpers = new HeaderHelpers();
@@ -63,10 +57,9 @@ public class BaseTest {
     protected StudentDetailsPage studentDetailsPage = new StudentDetailsPage();
     protected StudentHomePage studentHomePage = new StudentHomePage();
     protected TeacherHomePage teacherHomePage = new TeacherHomePage();
-    protected StudetnDirectoryPage studentDirectoryPage = new StudetnDirectoryPage();
+    protected StudentDirectoryPage studentDirectoryPage = new StudentDirectoryPage();
     protected HomePageHelpers homePageHelpers = new HomePageHelpers();
     protected GuestHomePage guestHomePage = new GuestHomePage();
     protected StudentCourseList studentCourseList = new StudentCourseList();
     protected StudentCourseDetails studentCourseDetails = new StudentCourseDetails();
-
 }

@@ -17,7 +17,7 @@ public class TeacherHomePage {
     private SelenideElement coursesButton = $x("(//span[normalize-space()='Courses'])[1]");
     private SelenideElement coursesLIstButton = $x("(//a[@role='menuitem'])[1]");
 
-    @Step("Не отображается кнопка Sign In")
+    @Step("exist 'Add A Сourse' Button Кнопка 'Add A Сourse' имеется")
     public void existAddAСourseButton() {
         addAcourseButton.shouldBe(Condition.visible);
     }

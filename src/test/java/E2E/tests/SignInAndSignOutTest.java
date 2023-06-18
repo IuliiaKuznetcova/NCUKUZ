@@ -2,6 +2,7 @@ package E2E.tests;
 
 import API.tests.ApiBase;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Issue;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
@@ -14,15 +15,7 @@ public class SignInAndSignOutTest extends BaseTest {
     ApiBase apiBase = new ApiBase();
     String endpoint = "/users/";
 
-
-   /* @Test
-    public void registrationOfANewStudentTest() {
-        guestHomePage.clickSignUpButton();
-        signUpPage.registrationOfANewStudent("Medo Chan", "medochan@chan.com", "222222");
-        guestHomePage.notExistSignInButton();
-        headerHelpers.displayAvatarButtonn();
-    }*/
-
+    @Issue("NCU-92")
     @Test
     public void registrationOfANewStudentTest() {
         String endpoint = "/users/";
@@ -33,6 +26,7 @@ public class SignInAndSignOutTest extends BaseTest {
         apiBase.deleteRequest(endpoint + email, 200);
     }
 
+    @Issue("NCU-92")
     @Test
     public void registrationOfANewStudentWithCheckTest() {
         guestHomePage.clickSignUpButton();
@@ -44,6 +38,7 @@ public class SignInAndSignOutTest extends BaseTest {
         apiBase.deleteRequest(endpoint + email, 200);
     }
 
+    @Issue("NCU-92")
     @Test
     public void registrationOfANewStudentWithSearchTest() {
         guestHomePage.clickSignUpButton();
@@ -61,6 +56,7 @@ public class SignInAndSignOutTest extends BaseTest {
         apiBase.deleteRequest(endpoint + email, 200);
     }
 
+    @Issue("NCU-92")
     @Test
     public void malickLoginTest() {
         guestHomePage.clickSignInButton();
@@ -70,6 +66,7 @@ public class SignInAndSignOutTest extends BaseTest {
         homePageHelpers.displayTitleProfessorSpotlight();
     }
 
+    @Issue("NCU-92")
     @Test
     public void malickLoginTestsearch() {
         guestHomePage.clickSignInButton();
@@ -79,8 +76,9 @@ public class SignInAndSignOutTest extends BaseTest {
         //studetnDirectoryPage.searchResultStudentDisplayExactData();
         studentDirectoryPage.viewProfileButtonClick();
         headerHelpers.displayAvatarButton();
-        }
+    }
 
+    @Issue("NCU-114")
     @Test
     public void roxanneLoginTest() {
         guestHomePage.clickSignInButton();
@@ -90,6 +88,7 @@ public class SignInAndSignOutTest extends BaseTest {
         homePageHelpers.displayTitleProfessorSpotlight();
     }
 
+    @Issue("NCU-152")
     @Test
     public void malickSignAndSignOutTest() {
         guestHomePage.clickSignInButton();

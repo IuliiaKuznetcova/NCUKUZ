@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selenide.$x;
 public class StudentHomePage {
 
 
-
     private ElementsCollection buttonInHeader = $$("//*[@id=\"home_header4\"]/header/div/div/div[1]");
     private SelenideElement coursesButton = $x("//*[@id=\"home_header4\"]/header/div/div/div[1]/a[2]/span");
     private SelenideElement coursesLIstButton = $x("//*[@id=\"home_header4\"]/header/div/div/div[1]/div/div/div/a");

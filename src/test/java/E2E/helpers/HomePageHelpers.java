@@ -12,14 +12,12 @@ import static com.codeborne.selenide.Selenide.$x;
 public class HomePageHelpers {
 
     private SelenideElement professorSpotlightTittle = $x("(//span[normalize-space()='Professor spotlight'])[1]");
-    private SelenideElement professorDirectoryButton = $x("(//span[normalize-space()='Professors'])[1]");
     private SelenideElement checkOutOurCoursesTitle = $x("/html[1]/body[1]/div[1]/div[2]/section[1]/div[1]/div[1]/p[1]");
     private SelenideElement noCodeUniversityAtAGlanceTitle = $x("/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/h2[1]");
-    private SelenideElement computerScienceTitle = $x("//*[@id=\"courses-grid-non-logged-in\"]/section/div/div[2]/div[2]/div/div/div/div/div/div[1]");
-    //private SelenideElement goToComputerScienceButton = $(By.className("(//a[contains(@type,'button')][normalize-space()='GO TO ->'])[1]"));
+    private SelenideElement computerScienceTitle = $x("//*[@id='courses-grid-non-logged-in']/section/div/div[2]/div[2]/div/div/div/div/div/div[1]");
     private SelenideElement goToComputerScienceButton = $x("//body[1]/div[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]");
     private SelenideElement computerSciencePage = $(byText("Computer Science"));
-    private SelenideElement coursesButton = $x("//*[@id=\"home-header-non-logged-in\"]/header/div/div/div/a[2]/span");
+
     @Step("Display title 'Professor Spotlight' отображение заголовка 'Professor Spotlight'")
     public void displayTitleProfessorSpotlight() {
         // checkOutOurCoursesTitle.shouldHave(Condition.text("Professor spotlight"));

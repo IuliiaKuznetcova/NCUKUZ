@@ -2,6 +2,7 @@ package E2E.tests;
 
 import E2E.helpers.CourseHelper;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Issue;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
@@ -11,6 +12,8 @@ public class UploadCourseMaterialTest extends BaseTest {
     CourseHelper courseHelper = new CourseHelper();
     private String emailMalik = PropertiesLoader.loadProperties("emailMalik");
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
+
+    @Issue("NCU-112")
     @Test
     public void editCourseTest() throws InterruptedException {
         guestHomePage.clickSignInButton();
@@ -25,6 +28,7 @@ public class UploadCourseMaterialTest extends BaseTest {
         uploadCourseMaterial.clickUploadBatton();
     }
 
+    @Issue("NCU-122")
     @Test
     public void editCourseWithCheckTest() throws InterruptedException, FileNotFoundException {
         guestHomePage.clickSignInButton();

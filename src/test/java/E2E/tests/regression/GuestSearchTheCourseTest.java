@@ -6,21 +6,13 @@ import org.testng.annotations.Test;
 
 public class GuestSearchTheCourseTest extends BaseTest {
 
-    @Issue("NCU-28")
+    @Issue("Jira-cloud NCU-28")
     @Test
     public void goToCoursesPageComputerScience() {
         headerHelpers.coursesButtonClick();
-        //searchPage.goToCoursesPage("Computer Science");
-        //searchPage.goToCoursesPage();
+        //homePageHelpers.goToCoursesPage("Computer Science");
         homePageHelpers.goToCoursesPage();
     }
-
-
-    // TODO
-    //  code functionality check
-    //  computerSciencePage = $(byText("I agree to the")); in SearchPage
-
-
 }
 
 

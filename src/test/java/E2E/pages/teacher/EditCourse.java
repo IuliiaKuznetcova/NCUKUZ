@@ -24,20 +24,20 @@ public class EditCourse {
     private SelenideElement coverPhotoField = $x("//*[@id=\"fld48q8Qjx5hyMNDc-input\"]");
     private SelenideElement deletePhotoBatton = $x(" (//span[@class='delete'])[1]");
     private SelenideElement cancelBatton = $x("(//button[normalize-space()='Cancel'])[1]");
-    //private SelenideElement saveBatton = $x("(//button[normalize-space()='Save'])[1]");
     private SelenideElement saveBatton = $x("(//button[normalize-space()='Save'])[1]");
     private SelenideElement courseStartDate = $x("(//input[@name='Start date'])[1]");
     private SelenideElement courseEndDate = $x("(//input[@name='Start date'])[1]");
 
-    @Step("Click the button edit Course Нажать кнопку Edit Course")
+    @Step("Click the button 'Edit Course' Нажать кнопку 'Edit Course'")
     public void editCourseButtonClick() {
         editCourseButton.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Display edit Record Form  Отображение формы Edit Record")
+    @Step("Display 'edit Record' Form  Отображение формы 'Edit Record'")
     public void displayEditRecordForm() {
         editRecordForm.shouldBe(visible, Duration.ofSeconds(10));
     }
+
     @Step("Edit Course name Изменение названия курса")
     public void editCourseName(String courseName) {
         courseNameField.shouldBe(visible, Duration.ofSeconds(10)).setValue("\u0003").setValue(courseName);
@@ -54,7 +54,7 @@ public class EditCourse {
         coverPhotoField.sendKeys(filePath);
     }
 
-    @Step("Edit Course Start Date Выбрать дату начала курса")
+    @Step("Edit 'Course Start Date' Изменить 'Course Start Date'")
     public void editCourseStartDate(String startData) {
         clickCourseStartDate();
 
@@ -63,27 +63,26 @@ public class EditCourse {
         Selenide.sleep(1000);
     }
 
-    @Step("Edit Course End Date Выбрать дату окончания курса")
+    @Step("Edit 'Course End Date' Изменить 'Course End Date'")
     public void editCourseEndDate(String endData) {
         clickCourseEndDate();
         selectDate(endData);
     }
 
-
-    @Step("Click the button Cancel Нажать кнопку Отменить")
+    @Step("Click the button 'Cancel' Нажать кнопку 'Cancel'")
     public void clickCancelBatton() {
         cancelBatton.shouldBe(visible, Duration.ofSeconds(10)).click();
         Selenide.sleep(5000);
     }
 
-    @Step("Click the button Save Нажать кнопку Сохранить")
+    @Step("Click the button 'Save' Нажать кнопку 'Save'")
     public void clickSaveBatton() {
         saveBatton.shouldBe(visible, Duration.ofSeconds(10)).click();
         Selenide.sleep(5000);
     }
 
-      public void selectDate(String date) {
-
+    @Step("Select date")
+    public void selectDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.parse(date, formatter);
         String dayOfMonth = String.valueOf(localDate.getDayOfMonth());
@@ -104,16 +103,14 @@ public class EditCourse {
         $$("button.rdrDay span.rdrDayNumber span").filter(Condition.text(dayOfMonth)).get(0).click();
     }
 
-    @Step("Click the field Add Course Нажать поле Выбрать дату начала курса")
+    @Step("Click the field 'Start Date' Нажать поле 'Start Date'")
     public void clickCourseStartDate() {
         courseStartDate.click();
         cancelBatton.setValue("\u0003");
     }
 
-    @Step("Click the field Add Course Нажать поле Выбрать дату окончания курса")
+    @Step("Click the field 'End Date' Нажать поле End Date'")
     public void clickCourseEndDate() {
         courseEndDate.click();
     }
-
-
 }

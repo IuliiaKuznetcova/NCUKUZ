@@ -2,12 +2,9 @@ package API.tests;
 
 import API.dto.ValidUserCredentials;
 import E2E.helpers.HeaderHelpers;
-import E2E.helpers.HomePageHelpers;
 import E2E.pages.guest.GuestHomePage;
 import E2E.pages.signIn.SignInPage;
-import E2E.pages.student.StudentHomePage;
-import E2E.pages.student.StudetnDirectoryPage;
-import E2E.tests.BaseTest;
+import E2E.pages.student.StudentDirectoryPage;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Issue;
 import org.testng.annotations.AfterMethod;
@@ -53,7 +50,7 @@ public class CreateUserTestApiBase extends ApiBase {
         SignInPage signInPage = new SignInPage();
         HeaderHelpers headerHelpers = new HeaderHelpers();
         GuestHomePage guestHomePage = new GuestHomePage();
-        StudetnDirectoryPage studetnDirectoryPage = new StudetnDirectoryPage();
+        StudentDirectoryPage studetnDirectoryPage = new StudentDirectoryPage();
 
         ValidUserCredentials requestBody = ValidUserCredentials.builder()
                 .full_name(fullName)

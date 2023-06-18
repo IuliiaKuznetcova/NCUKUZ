@@ -1,14 +1,16 @@
 package E2E.tests;
 
+import io.qameta.allure.Issue;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
-public class CheckLoginAndButtoninHeaderTest extends BaseTest{
+public class CheckLoginAndButtoninHeaderTest extends BaseTest {
     private String emailMalik = PropertiesLoader.loadProperties("emailMalik");
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
 
+    @Issue("NCU-92")
     @Test
-    public void malickLoginAndClickTest()  {
+    public void malickLoginAndClickTest() {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
         guestHomePage.notExistSignInButton();
@@ -23,8 +25,9 @@ public class CheckLoginAndButtoninHeaderTest extends BaseTest{
         headerHelpers.nocodeButtonClick();
     }
 
+    @Issue("NCU-114")
     @Test
-    public void roxanneLoginAndClickTest()  {
+    public void roxanneLoginAndClickTest() {
         guestHomePage.clickSignInButton();
         signInPage.loginRoxanne();
         guestHomePage.notExistSignInButton();
@@ -39,20 +42,13 @@ public class CheckLoginAndButtoninHeaderTest extends BaseTest{
         headerHelpers.nocodeButtonClick();
     }
 
-  /*  @Test
-    public void login(){
-        guestHomePage.clickSignInButton();
-        signInPage.loginAction("gfd", "dfg");
-        guestHomePage.notExistSignInButton();
-    }*/
-
     @Test
-    public void guestClick () {
+    public void guestClick() {
         headerHelpers.coursesButtonClick();
         homePageHelpers.displayCheckOutOurCoursesTitle();
         headerHelpers.professorsButtonClick();
         homePageHelpers.displayTitleProfessorSpotlight();
-        headerHelpers.aboutUnsButtonClick();
+        headerHelpers.aboutUsButtonClick();
         homePageHelpers.displaynoCodeUniversityAtAGlanceTitle();
     }
 }

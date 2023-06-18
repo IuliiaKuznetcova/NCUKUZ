@@ -10,6 +10,7 @@ public class EditCourseTest extends BaseTest {
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
     CourseHelper courseHelper = new CourseHelper();
 
+    // TODO Нет тесткейса
     @Test
     public void editCourseTest() throws InterruptedException {
         guestHomePage.clickSignInButton();
@@ -19,12 +20,13 @@ public class EditCourseTest extends BaseTest {
         courseHelper.searchCourseWithCheck("QA test");
         studentCourseDetails.tyknutTut();
         editCourse.editCourseButtonClick();
-       editCourse.displayEditRecordForm();
-       editCourse.editCourseName("Doooon't QA test");
+        editCourse.displayEditRecordForm();
+        editCourse.editCourseName("Doooon't QA test");
         //editCourse.coverPhoto();
+        // TODO Фотография не прикрепляется
         //editCourse.editCourseStartDate("06-05-2023");
         // TODO не могу понять, как изменить дату. Очистка не помогла
-       editCourse.clickSaveBatton();
+        editCourse.clickSaveBatton();
     }
 
     @Test
@@ -47,5 +49,4 @@ public class EditCourseTest extends BaseTest {
         studentCourseDetails.tyknutTut();
         studentCourseDetails.viewAboutThisCourse();
     }
-
 }

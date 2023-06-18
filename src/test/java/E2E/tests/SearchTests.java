@@ -1,6 +1,7 @@
 package E2E.tests;
 
 import E2E.helpers.CourseHelper;
+import io.qameta.allure.Issue;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
@@ -10,7 +11,6 @@ public class SearchTests extends BaseTest {
     CourseHelper courseHelper = new CourseHelper();
     private String emailMalik = PropertiesLoader.loadProperties("emailMalik");
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
-    // TeacherDirectoryPage teacherDirectoryPage = new TeacherDirectoryPage();
 
     @Test
     public void searchInformationAboutThisCourseGrowthMarketing() throws InterruptedException {
@@ -18,14 +18,12 @@ public class SearchTests extends BaseTest {
         signInPage.loginMalik(emailMalik, passwordMalik);
         studentHomePage.goToCoursesPage();
         studentCourseList.displayOurCoursesTitle("Our courses");
-        //courseHelper.searchCourseWithCheck("Growth Marketing");
-        courseHelper.searchCourseWithCheck("Ras");
-        // TODO Найти курс с любым названием courseHelper.searchCourseWithCheck("QA");
+        courseHelper.searchCourseWithCheck("Rasras");
         studentCourseDetails.tyknutTut();
         studentCourseDetails.viewAboutThisCourse();
-
     }
 
+    @Issue("NCU-98")
     @Test
     public void searchForTeacherInTheCourseGrowthMarketing() throws InterruptedException {
         guestHomePage.clickSignInButton();
@@ -37,6 +35,7 @@ public class SearchTests extends BaseTest {
         // TODO сделать проверку на содержание раздела с преподавателями
     }
 
+    @Issue("NCU-102")
     @Test
     public void searchForAnExistingStudent() throws InterruptedException {
         guestHomePage.clickSignInButton();
@@ -48,7 +47,8 @@ public class SearchTests extends BaseTest {
         headerHelpers.signOut();
     }
 
-       @Test
+    @Issue("Jira-cloud NCU-5")
+    @Test
     public void searchForAnExistingProfessor() throws InterruptedException {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
@@ -62,7 +62,7 @@ public class SearchTests extends BaseTest {
     }
 
     @Test
-    public void download () throws InterruptedException, FileNotFoundException {
+    public void download() throws InterruptedException, FileNotFoundException {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
         studentHomePage.goToCoursesPage();
@@ -70,6 +70,5 @@ public class SearchTests extends BaseTest {
         studentCourseDetails.tyknutTut();
         //studentGrowthMarketingCourseDetails.viewAboutThisCourse();
         studentCourseDetails.downloadDocument();
-        //
     }
 }

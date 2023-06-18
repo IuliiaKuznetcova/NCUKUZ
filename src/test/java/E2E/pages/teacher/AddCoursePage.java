@@ -36,7 +36,7 @@ public class AddCoursePage {
     // private SelenideElement juni30EndDate = $x("(//span[contains(@class,'rdrDayStartPreview rdrDayEndPreview')])[1]");
     private SelenideElement addBatton = $x("(//button[normalize-space()='Add'])[1]");
 
-    @Step("Display Add new Course Form  Отображение формы регистрации")
+    @Step("Display 'Add new Course' Form  Отображение формы регистрации 'Add new Course' ")
     public void displayAddANewCourseForm() {
         addANewCourseForm.shouldBe(visible, Duration.ofSeconds(10));
     }
@@ -63,7 +63,7 @@ public class AddCoursePage {
         coverPhotoField.sendKeys(filePath);
     }
 
-        @Step("Select Course Start Date Выбрать дату начала курса")
+    @Step("Select Course Start Date Выбрать дату начала курса")
     public void selectCourseStartDate(String startData) {
         clickCourseStartDate();
         selectDate(startData);
@@ -75,7 +75,7 @@ public class AddCoursePage {
         selectDate(endData);
     }
 
-    @Step("Click the button Add Course Нажать кнопку ДОбавить курс")
+    @Step("Click the button 'Add Course' Нажать кнопку 'Add Course'")
     public void addCourseButtonClick() {
         addCourseButton.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
@@ -84,6 +84,7 @@ public class AddCoursePage {
     public void clickSelectFaculty() {
         selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
+
     // TODO выбор любого факультета
     @Step("select Faculty Medicine Выбрать факультета медицины")
     public void selectFacultyMedicine() {
@@ -91,7 +92,7 @@ public class AddCoursePage {
         medicineFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Click the button Add Нажать кнопку Добавить")
+    @Step("Click the button 'Add' Нажать кнопку 'Add'")
     public void clickAddBatton() {
         addBatton.shouldBe(visible, Duration.ofSeconds(10)).click();
         Selenide.sleep(7000);
@@ -105,24 +106,22 @@ public class AddCoursePage {
         addBatton.shouldNotHave(Condition.attribute("background-color:#2c2921", colorOfBatton));
     }
 
-    @Step("Click the field Add Course Нажать поле Выбрать дату начала курса")
+    @Step("Click the field 'Course Start Date' Нажать поле 'Course Start Date'")
     public void clickCourseStartDate() {
         courseStartDate.click();
     }
 
-    @Step("Click the field Add Course Нажать поле Выбрать дату окончания курса")
+    @Step("Click the field 'Course End Date' Нажать поле 'Course End Date'")
     public void clickCourseEndDate() {
         courseEndDate.click();
     }
 
-    //______________________
+    @Step("Select date")
     public void selectDate(String date) {
-        // Parse the date
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate localDate = LocalDate.parse(date, formatter);
         String dayOfMonth = String.valueOf(localDate.getDayOfMonth());
 
-        // Select the year and month
         while (true) {
             SelenideElement displayedDate = $("ul.month-year-header li:nth-child(2)");
             String[] displayedDateParts = displayedDate.text().split(" ");
@@ -136,10 +135,8 @@ public class AddCoursePage {
             }
         }
 
-        // Select the day
         $$("button.rdrDay span.rdrDayNumber span").filter(Condition.text(dayOfMonth)).get(0).click();
     }
-
 }
 
 

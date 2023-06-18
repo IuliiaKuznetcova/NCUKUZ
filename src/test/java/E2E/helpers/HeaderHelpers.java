@@ -85,8 +85,8 @@ public class HeaderHelpers {
         myProfileButton.click();
     }
 
-    @Step("Click the button 'About Uns'")
-    public void aboutUnsButtonClick() {
+    @Step("Click the button 'About Us'")
+    public void aboutUsButtonClick() {
         aboutUnsButton.shouldBe(visible, Duration.ofSeconds(10));
         aboutUnsButton.click();
     }
