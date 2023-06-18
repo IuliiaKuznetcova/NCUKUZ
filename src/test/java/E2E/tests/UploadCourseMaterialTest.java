@@ -5,6 +5,8 @@ import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
 
+import java.io.FileNotFoundException;
+
 public class UploadCourseMaterialTest extends BaseTest {
     CourseHelper courseHelper = new CourseHelper();
     private String emailMalik = PropertiesLoader.loadProperties("emailMalik");
@@ -21,5 +23,18 @@ public class UploadCourseMaterialTest extends BaseTest {
         uploadCourseMaterial.enterDocumentName("Document");
         uploadCourseMaterial.uploadDocument("E:/Autotesting/NCUKUZ/src/test/resources/123.png");
         uploadCourseMaterial.clickUploadBatton();
+    }
+
+    @Test
+    public void editCourseWithCheckTest() throws InterruptedException, FileNotFoundException {
+        guestHomePage.clickSignInButton();
+        signInPage.loginMalik(emailMalik, passwordMalik);
+        studentHomePage.goToCoursesPage();
+        courseHelper.searchCourseWithCheck("Growth Marketing");
+        studentCourseDetails.tyknutTut();
+        scroll.click();
+        //studentCourseDetails.viewAboutThisCourse();
+        studentCourseDetails.downloadDocument();
+        // TODO сделать проверку на содержание раздела с преподавателями
     }
 }

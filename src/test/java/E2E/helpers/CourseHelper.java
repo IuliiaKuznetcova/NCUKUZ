@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 public class CourseHelper extends BaseTest {
     @Step("Search course with check Поиск курса с проверкой")
-    public void searchCourseWithCheck(String courseName) throws InterruptedException {
+    public void searchCourseWithCheck(String courseName)  {
         studentCourseList.fillFieldSearch(courseName);
         studentCourseList.searchResultDisplayExactData(courseName);
         studentCourseList.goToCourseFromSearchResult(courseName);
@@ -34,39 +34,11 @@ public class CourseHelper extends BaseTest {
         studentDetailsPage.displayStudenFullNameExactData(searchedStudentName);
     }
 
-    @Step("Search Student with check Поиск студента с проверкой")
-    public void searchStudentWithCheck1(String searchedStudentName) {
-        studentDirectoryPage.fillFieldSearchOnStudentDirectory(searchedStudentName);
-
-    }
-
-    @Step("Search Student with check Поиск студента с проверкой")
-    public void searchStudentWithCheck2(String searchedStudentName) {
-
-        studentDirectoryPage.searchResultStudentDisplayExactData(searchedStudentName);
-
-    }
-
-    @Step("Search Student with check Поиск студента с проверкой")
-    public void searchStudentWithCheck3() {
-
-        studentDirectoryPage.viewProfileButtonClick();
-
-    }
-
-    @Step("Search Student with check Поиск студента с проверкой")
-    public void searchStudentWithCheck4(String searchedStudentName) {
-
-        studentDetailsPage.displayStudenFullNameExactData(searchedStudentName);
-    }
-
-
-    @Step("Search Student with check Поиск профессора с проверкой")
+    @Step("Search Professor  with check Поиск профессора с проверкой")
     public void searchProfessorWithCheck(String searchedProfessorName) throws InterruptedException {
         studentDirectoryPage.fillFieldSearchOnProfessorDirectory(searchedProfessorName);
         studentDirectoryPage.searchResultProfessorDisplayExactData(searchedProfessorName);
         studentDirectoryPage.viewProfileButtonClick();
         studentDetailsPage.displayProfessorFullNameExactData(searchedProfessorName);
     }
-
 }

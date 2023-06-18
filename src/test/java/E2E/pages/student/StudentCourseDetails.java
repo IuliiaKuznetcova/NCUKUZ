@@ -94,12 +94,15 @@ public void downloadDocument1()  {
         }*/
     }
 public void downloadDocument () throws FileNotFoundException {
-    SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687046400000/8-lu83W2yV-wZsn1D2wz5w/IJcnFqy97LD82i8ghBWFqExgvj86iZD2CGD3_qYyBQXjFQfgZb-AC72qyxpVPOKka21Og3jtu2p4hywzg7ei_1rzWtVlG_6nQeTPOCaIqZM/IHgbt0lNJbJ8x5wo8Kl6JINKcs2CC13PtdgruBT_8gE']");
+    //SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687046400000/8-lu83W2yV-wZsn1D2wz5w/IJcnFqy97LD82i8ghBWFqExgvj86iZD2CGD3_qYyBQXjFQfgZb-AC72qyxpVPOKka21Og3jtu2p4hywzg7ei_1rzWtVlG_6nQeTPOCaIqZM/IHgbt0lNJbJ8x5wo8Kl6JINKcs2CC13PtdgruBT_8gE']");
+    //SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687104000000/gRPxrT3XXHIofVD63wALUw/rI4Bxb6bgpV1X0sjwbZqPmPAmg95LqPte4vbUqZDWsTR_v0lb7NsBR0ZGGWTasg1epJ1XSvOpC0_iQkpyFbCzG-B9NhPE9rWcF4x5EzXGXgj8B5wRONwwqpybDBxnhgB/t3vNfpb7zOWLHbeBH7pBYPXay5hr-ZWRk8WMSo3-kI0']");
+    SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687104000000/Vtin4dk_FdY0zETKBRsDIA/c79i21d83A-NPaHxQnhiI8c9j-NQFo9UuipcSu_3ljyjCIqErkGfGr_V9CTdhgmf4rTs9brr9pSOOnPJCrNBCyRq1bsFCDFx5JyWW1ye2vI/BmG09gqiNk1VwAlSc586w-_doQu82Vd8LPd5XuB5NpY']");
+
     File downloadedFile = downloadDocument.download();
     if (downloadedFile.exists()) {
-        System.out.println("Файл успешно загружен");
+        System.out.println("File uploaded successfully");
     } else {
-        System.out.println("Загруженный файл не найден");
+        System.out.println("Uploaded file not found");
     }
 }
     }

@@ -25,7 +25,7 @@ public class EditCourse {
     private SelenideElement deletePhotoBatton = $x(" (//span[@class='delete'])[1]");
     private SelenideElement cancelBatton = $x("(//button[normalize-space()='Cancel'])[1]");
     //private SelenideElement saveBatton = $x("(//button[normalize-space()='Save'])[1]");
-    private SelenideElement saveBatton = $x("(/button[normalize-space()='Save'])[1]");
+    private SelenideElement saveBatton = $x("(//button[normalize-space()='Save'])[1]");
     private SelenideElement courseStartDate = $x("(//input[@name='Start date'])[1]");
     private SelenideElement courseEndDate = $x("(//input[@name='Start date'])[1]");
 

@@ -22,19 +22,13 @@ public class SearchPage {
 
 
 
-    @Step("Go to Courses Page  Переход к странице Courses")
-    public void goToCoursesPage(String courseName) {
-        computerScienceTitle.shouldHave(Condition.text(courseName));
+ /*   @Step("Go to 'Courses Page'  Переход к странице Courses")
+    //public void goToCoursesPage(String courseName) {
+    public void goToCoursesPage() {
+        //computerScienceTitle.shouldHave(Condition.text(courseName));
         goToComputerScienceButton.click();
         computerSciencePage.should(exist);
-    }
-
-    @Step("Click courses Button")
-    public void clickCoursesButton() {
-        coursesButton.click();
-        coursesButton.shouldBe(visible, Duration.ofSeconds(10));
-    }
-
+    }*/
 
 }
 

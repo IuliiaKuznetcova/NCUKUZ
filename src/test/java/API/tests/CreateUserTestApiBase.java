@@ -9,6 +9,7 @@ import E2E.pages.student.StudentHomePage;
 import E2E.pages.student.StudetnDirectoryPage;
 import E2E.tests.BaseTest;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Issue;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import utils.PropertiesLoader;
@@ -20,6 +21,7 @@ public class CreateUserTestApiBase extends ApiBase {
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
     final static String BASE_URI = "https://jere237.softr.app";
 
+    @Issue("NCU-145")
     @Test
     public void successfulCreateUserWithExactData() {
         ValidUserCredentials requestBody = ValidUserCredentials.builder()
@@ -31,6 +33,7 @@ public class CreateUserTestApiBase extends ApiBase {
         postRequest(endpoint, 201, requestBody);
     }
 
+    @Issue("NCU-157")
     @Test
     public void successfulCreateUser() {
         ValidUserCredentials requestBody = ValidUserCredentials.builder()
@@ -42,6 +45,8 @@ public class CreateUserTestApiBase extends ApiBase {
         postRequest(endpoint, 201, requestBody);
     }
 
+    @Issue("NCU-")
+    // TODO создать тесткейс
     @Test
     public void successfulCreateUserApiAndUiWithLoginCheck() {
 

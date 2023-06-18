@@ -53,7 +53,7 @@ public class SearchTests extends BaseTest {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
         Thread.sleep(1000);
-        headerHelpers.professorButtonClick();
+        headerHelpers.professorsButtonClick();
         Thread.sleep(1000);
         homePageHelpers.displayTitleProfessorSpotlight();
         courseHelper.searchProfessorWithCheck("Marie Curie");
@@ -70,6 +70,6 @@ public class SearchTests extends BaseTest {
         studentCourseDetails.tyknutTut();
         //studentGrowthMarketingCourseDetails.viewAboutThisCourse();
         studentCourseDetails.downloadDocument();
-        // TODO сделать проверку на содержание раздела с преподавателями
+        //
     }
 }

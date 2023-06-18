@@ -14,8 +14,8 @@ public class CheckLoginAndButtoninHeaderTest extends BaseTest{
         guestHomePage.notExistSignInButton();
         headerHelpers.studentDirectoryButtonClick();
         headerHelpers.coursesButtonClick();
-        headerHelpers.coursesLIstButtonClick();
-        headerHelpers.professorButtonClick();
+        headerHelpers.coursesListButtonClick();
+        headerHelpers.professorsButtonClick();
         headerHelpers.signOut();
         signInPage.loginMalik(emailMalik, passwordMalik);
         headerHelpers.avatarButtonClick();
@@ -30,8 +30,8 @@ public class CheckLoginAndButtoninHeaderTest extends BaseTest{
         guestHomePage.notExistSignInButton();
         headerHelpers.studentDirectoryButtonClick();
         headerHelpers.coursesButtonClick();
-        headerHelpers.coursesLIstButtonClick();
-        headerHelpers.professorButtonClick();
+        headerHelpers.coursesListButtonClick();
+        headerHelpers.professorsButtonClick();
         headerHelpers.signOut();
         signInPage.loginRoxanne();
         headerHelpers.avatarButtonClick();
@@ -50,7 +50,7 @@ public class CheckLoginAndButtoninHeaderTest extends BaseTest{
     public void guestClick () {
         headerHelpers.coursesButtonClick();
         homePageHelpers.displayCheckOutOurCoursesTitle();
-        headerHelpers.professorButtonClick();
+        headerHelpers.professorsButtonClick();
         homePageHelpers.displayTitleProfessorSpotlight();
         headerHelpers.aboutUnsButtonClick();
         homePageHelpers.displaynoCodeUniversityAtAGlanceTitle();

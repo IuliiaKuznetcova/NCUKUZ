@@ -10,7 +10,9 @@ public class GuestSearchTheCourseTest extends BaseTest {
     @Test
     public void goToCoursesPageComputerScience() {
         headerHelpers.coursesButtonClick();
-        searchPage.goToCoursesPage("Computer Science");
+        //searchPage.goToCoursesPage("Computer Science");
+        //searchPage.goToCoursesPage();
+        homePageHelpers.goToCoursesPage();
     }
 
 
