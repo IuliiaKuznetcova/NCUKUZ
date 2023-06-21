@@ -13,16 +13,17 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class TeacherHomePage {
 
-    private SelenideElement addAcourseButton = $x("(//span[normalize-space()='Add a course'])[1]");
+    //private SelenideElement addAcourseButton = $x("(//span[normalize-space()='Add a course'])[1]");
+    private SelenideElement addAcourseButton = $x("//*[@id=\"home-header-logged-in-teachers\"]/header/div/div/div[1]/div/a");
     private SelenideElement coursesButton = $x("(//span[normalize-space()='Courses'])[1]");
     private SelenideElement coursesLIstButton = $x("(//a[@role='menuitem'])[1]");
 
-    @Step("exist 'Add A Сourse' Button Кнопка 'Add A Сourse' имеется")
+    @Step("'Add A Сourse' Button exists")
     public void existAddAСourseButton() {
         addAcourseButton.shouldBe(Condition.visible);
     }
 
-    @Step("Go to Courses Page  Переход к странице Courses")
+    @Step("Go to Courses Page")
     public void goToCoursesPage() throws InterruptedException {
         coursesButton.click();
         Thread.sleep(1000);

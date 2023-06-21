@@ -15,8 +15,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AddCoursePage {
-
     private SelenideElement addCourseButton = $x("(//span[normalize-space()='Add course'])[1]");
+
+    //private SelenideElement addCourseButton = $x("(//span[@class='MuiBox-root css-jf8tht'])[1]");
     private SelenideElement addANewCourseForm = $x("(//div[@class='MuiGrid-root MuiGrid-container css-t7lb4m'])[1]");
     private SelenideElement courseNameField = $x("(//input[@id='course-documents-form-CourseName--1078269106'])[1]");
     private SelenideElement selectFaculty = $x("(//div[@id='course-documents-form-Faculty-1389247778'])[1]");
@@ -36,69 +37,69 @@ public class AddCoursePage {
     // private SelenideElement juni30EndDate = $x("(//span[contains(@class,'rdrDayStartPreview rdrDayEndPreview')])[1]");
     private SelenideElement addBatton = $x("(//button[normalize-space()='Add'])[1]");
 
-    @Step("Display 'Add new Course' Form  Отображение формы регистрации 'Add new Course' ")
+    @Step("Display 'Add new Course' Form")
     public void displayAddANewCourseForm() {
         addANewCourseForm.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Enter Course name Введение названия курса")
+    @Step("Enter Course name")
     public void enterCourseName(String courseName) {
         courseNameField.shouldBe(visible, Duration.ofSeconds(10)).setValue(courseName);
     }
 
-    @Step("select Faculty")
+    @Step("Select specific Faculty")
     public void selectFaculty() {
         clickSelectFaculty();
         selectFacultyMedicine();
     }
 
-    @Step("Enter Course description Введение описания курса")
+    @Step("Enter Course description")
     public void enterCourseDescription(String courseDescription) {
         courseDescriptionField.shouldBe(visible, Duration.ofSeconds(10)).setValue(courseDescription);
     }
 
-    @Step("Cover photo Прикрепить фото")
+    @Step("Cover photo")
     public void coverPhoto() {
         String filePath = "E:/Autotesting/NCUKUZ/src/test/resources/ras.jfif";
         coverPhotoField.sendKeys(filePath);
     }
 
-    @Step("Select Course Start Date Выбрать дату начала курса")
+    @Step("Select Start Date of the Course")
     public void selectCourseStartDate(String startData) {
         clickCourseStartDate();
         selectDate(startData);
     }
 
-    @Step("Select Course End Date Выбрать дату окончания курса")
+    @Step("Select Start Date of the Course ")
     public void selectCourseEndDate(String endData) {
         clickCourseEndDate();
         selectDate(endData);
     }
 
-    @Step("Click the button 'Add Course' Нажать кнопку 'Add Course'")
+    @Step("Click the button 'Add Course'")
     public void addCourseButtonClick() {
         addCourseButton.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("select Faculty")
+    @Step("Select Faculty")
     public void clickSelectFaculty() {
         selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
     // TODO выбор любого факультета
-    @Step("select Faculty Medicine Выбрать факультета медицины")
+    @Step("select Faculty Medicine")
     public void selectFacultyMedicine() {
         //selectFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
         medicineFaculty.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Click the button 'Add' Нажать кнопку 'Add'")
+    @Step("Click the button 'Add'")
     public void clickAddBatton() {
         addBatton.shouldBe(visible, Duration.ofSeconds(10)).click();
         Selenide.sleep(7000);
     }
 
-    @Step("Проверка того, что кнопка зеленая")
+    @Step("Checking if the button is green")
     public void checkAddCourse() {
         // addBatton.shouldHave(cssValue("background-color", "green"));
         String colorOfBatton = addBatton.getCssValue("background-color:#2c2921");
@@ -106,12 +107,12 @@ public class AddCoursePage {
         addBatton.shouldNotHave(Condition.attribute("background-color:#2c2921", colorOfBatton));
     }
 
-    @Step("Click the field 'Course Start Date' Нажать поле 'Course Start Date'")
+    @Step("Click the field 'Course Start Date'")
     public void clickCourseStartDate() {
         courseStartDate.click();
     }
 
-    @Step("Click the field 'Course End Date' Нажать поле 'Course End Date'")
+    @Step("Click the field 'Course End Date'")
     public void clickCourseEndDate() {
         courseEndDate.click();
     }

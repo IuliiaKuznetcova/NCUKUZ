@@ -1,6 +1,7 @@
 package E2E.tests;
 
 import API.tests.ApiBase;
+import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Issue;
 import org.testng.annotations.Test;
@@ -21,7 +22,9 @@ public class SignInAndSignOutTest extends BaseTest {
         String endpoint = "/users/";
         guestHomePage.clickSignUpButton();
         signUpPage.registrationOfANewStudent(fullName, email, "654321");
+        Selenide.sleep(5000);
         guestHomePage.notExistSignInButton();
+        Selenide.sleep(5000);
         headerHelpers.displayAvatarButton();
         apiBase.deleteRequest(endpoint + email, 200);
     }
@@ -31,7 +34,9 @@ public class SignInAndSignOutTest extends BaseTest {
     public void registrationOfANewStudentWithCheckTest() {
         guestHomePage.clickSignUpButton();
         signUpPage.registrationOfANewStudent(fullName, email, "654321");
+        Selenide.sleep(5000);
         guestHomePage.notExistSignInButton();
+        Selenide.sleep(5000);
         headerHelpers.signOut();
         guestHomePage.clickSignInButton();
         signInPage.loginAction(email, "654321");
@@ -43,13 +48,16 @@ public class SignInAndSignOutTest extends BaseTest {
     public void registrationOfANewStudentWithSearchTest() {
         guestHomePage.clickSignUpButton();
         signUpPage.registrationOfANewStudent(fullName, email, "654321");
+        Selenide.sleep(5000);
         guestHomePage.notExistSignInButton();
+        Selenide.sleep(5000);
         headerHelpers.signOut();
         guestHomePage.clickSignInButton();
         signInPage.loginAction(email, "654321");
         headerHelpers.avatarButtonClick();
         headerHelpers.signOutButtonClick();
         signInPage.loginMalik(emailMalik, passwordMalik);
+        headerHelpers.studentDirectoryButtonClick();
         studentDirectoryPage.fillFieldSearchOnStudentDirectory(fullName);
         //studetnDirectoryPage.searchResultStudentDisplayExactData(fullName);
         studentDirectoryPage.viewProfileButtonClick();
@@ -72,7 +80,7 @@ public class SignInAndSignOutTest extends BaseTest {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
         guestHomePage.notExistSignInButton();
-        studentDirectoryPage.fillFieldSearchOnStudentDirectory("Medo Chan");
+        studentDirectoryPage.fillFieldSearchOnStudentDirectory("Marie Curie");
         //studetnDirectoryPage.searchResultStudentDisplayExactData();
         studentDirectoryPage.viewProfileButtonClick();
         headerHelpers.displayAvatarButton();

@@ -4,7 +4,7 @@ import E2E.tests.BaseTest;
 import io.qameta.allure.Step;
 
 public class CourseHelper extends BaseTest {
-    @Step("Search course with check Поиск курса с проверкой")
+    @Step("Course search with a check-up")
     public void searchCourseWithCheck(String courseName)  {
         studentCourseList.fillFieldSearch(courseName);
         studentCourseList.searchResultDisplayExactData(courseName);
@@ -13,20 +13,20 @@ public class CourseHelper extends BaseTest {
         //studentGrowthMarketingCourseDetails.displayTitleCourse(String.valueOf(text(courseName)));
     }
 
-    @Step("Search course Поиск курса")
+    @Step("Course search ")
     public void searchCourse(String courseName) {
         studentCourseList.fillFieldSearch(courseName);
         studentCourseList.searchResultDisplayExactData(courseName);
         scrollPageToElement2023NoCode();
     }
 
-    @Step("Search Student Поиск студента")
+    @Step("Student Search ")
     public void searchStudent(String searchedStudentName) {
         studentDirectoryPage.fillFieldSearchOnStudentDirectory(searchedStudentName);
         studentDirectoryPage.searchResultStudentDisplayExactData(searchedStudentName);
     }
 
-    @Step("Search Student with check Поиск студента с проверкой")
+    @Step("Student Search with a check-up ")
     public void searchStudentWithCheck(String searchedStudentName) {
         studentDirectoryPage.fillFieldSearchOnStudentDirectory(searchedStudentName);
         studentDirectoryPage.searchResultStudentDisplayExactData(searchedStudentName);
@@ -34,7 +34,7 @@ public class CourseHelper extends BaseTest {
         studentDetailsPage.displayStudenFullNameExactData(searchedStudentName);
     }
 
-    @Step("Search Professor  with check Поиск профессора с проверкой")
+    @Step("Professor Search  with a check-up ")
     public void searchProfessorWithCheck(String searchedProfessorName) throws InterruptedException {
         studentDirectoryPage.fillFieldSearchOnProfessorDirectory(searchedProfessorName);
         studentDirectoryPage.searchResultProfessorDisplayExactData(searchedProfessorName);

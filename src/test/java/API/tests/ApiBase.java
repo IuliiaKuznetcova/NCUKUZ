@@ -14,7 +14,8 @@ import org.testng.annotations.BeforeMethod;
 
 public class ApiBase { final static String BASE_URI_API = "https://studio-api.softr.io/v1/api";
     final static String API_KEY = "khIbAyJIU5CIuh1oDuBRx1s49";
-    final static String DOMAIN = "jere237.softr.app";
+    //final static String DOMAIN = "jere237.softr.app";
+    final static String DOMAIN = "erich416.softr.app";
 
     String endpoint = "/users/";
     Faker faker = new Faker();
@@ -75,6 +76,8 @@ public class ApiBase { final static String BASE_URI_API = "https://studio-api.so
         response.then().assertThat().statusCode(responseCode);
         return response;
     }
+
+
 
 }
 

@@ -41,7 +41,7 @@ public class SignInPage {
                 .click();
     }
 
-    @Step("Login action with enter email, password and click Sign In Button Авторизация с введением емейла, пароля и нажатием кнопки Sign In")
+    @Step("Login action with entering an email, password and clicking „Sign In” Button")
     public void loginAction(String emailValue, String passwordValue) {
         registrationForm.shouldBe(visible, Duration.ofSeconds(10));
         emailField.shouldBe(visible, Duration.ofSeconds(10));
@@ -51,7 +51,7 @@ public class SignInPage {
         signInButtonInRegistrForm.click();
     }
 
-    @Step("Login User Aвторазиция пользователя")
+    @Step("Login User")
     public void loginUser(String emailValue, String passwordValue) {
         registrationForm.shouldBe(visible, Duration.ofSeconds(10));
         emailField.shouldBe(visible, Duration.ofSeconds(10));
@@ -61,7 +61,7 @@ public class SignInPage {
         signInButtonInRegistrForm.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Login student Malik авторазиция студента Malik")
+    @Step("Login student Malik")
     public void loginMalik(String emailValue, String passwordValue) {
         registrationForm.shouldBe(visible, Duration.ofSeconds(10));
         emailField.shouldBe(visible, Duration.ofSeconds(10));
@@ -71,7 +71,7 @@ public class SignInPage {
         signInButtonInRegistrForm.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Login teacher Roxanna авторазиция преподавателя Roxanne")
+    @Step("Login teacher Roxanna")
     public void loginRoxanne() {
         registrationForm.shouldBe(visible, Duration.ofSeconds(10));
         emailField.shouldBe(visible, Duration.ofSeconds(10));

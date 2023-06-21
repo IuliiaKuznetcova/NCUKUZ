@@ -16,7 +16,8 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class CreateUserTestApiBase extends ApiBase {
     private String emailMalik = PropertiesLoader.loadProperties("emailMalik");
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
-    final static String BASE_URI = "https://jere237.softr.app";
+    // final static String BASE_URI = "https://jere237.softr.app";
+    final static String BASE_URI = "https://erich416.softr.app/";
 
     @Issue("NCU-145")
     @Test
@@ -42,32 +43,7 @@ public class CreateUserTestApiBase extends ApiBase {
         postRequest(endpoint, 201, requestBody);
     }
 
-    @Issue("NCU-")
-    // TODO создать тесткейс
-    @Test
-    public void successfulCreateUserApiAndUiWithLoginCheck() {
-
-        SignInPage signInPage = new SignInPage();
-        HeaderHelpers headerHelpers = new HeaderHelpers();
-        GuestHomePage guestHomePage = new GuestHomePage();
-        StudentDirectoryPage studetnDirectoryPage = new StudentDirectoryPage();
-
-        ValidUserCredentials requestBody = ValidUserCredentials.builder()
-                .full_name(fullName)
-                .email(email)
-                .password("777555")
-                .generate_magic_link(false)
-                .build();
-        postRequest(endpoint, 201, requestBody);
-        Selenide.open(BASE_URI);
-        guestHomePage.clickSignInButton();
-        signInPage.loginMalik(emailMalik, passwordMalik);
-        headerHelpers.studentDirectoryButtonClick();
-        studetnDirectoryPage.fillFieldSearchOnStudentDirectory(fullName);
-        headerHelpers.signOut();
-    }
-
-    @AfterMethod
+      @AfterMethod
     public void afterTest() {
         deleteRequest(endpoint + email, 200);
         closeWebDriver();

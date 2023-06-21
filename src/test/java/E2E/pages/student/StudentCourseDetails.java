@@ -33,12 +33,12 @@ public class StudentCourseDetails {
     private SelenideElement downloadLink = $x("(//div[contains(text(),'Growth Marketing Course Document.pdf')])[1]");
 
 
-    @Step("Dysplay information about Teacher of Courses Отображение информации об учителях курса")
+    @Step("Information display about the teachers of the courses ")
     public void dysplayngInformationAboutCourseTeacher() {
         courseInformationWidget.get(1).shouldHave(text("Heading3"));
     }
 
-    @Step("Print information about Teacher of Courses  Отображение информации об учителях курса")
+    @Step("Information display about the teachers of the courses ")
     public void printInformationAboutCourseTeacher() {
         List<String> professors = new ArrayList<>();
         for (SelenideElement element : courseInformationWidget.get(0).$$(By.className("sw-font-size-xl"))) {
@@ -51,43 +51,44 @@ public class StudentCourseDetails {
         }
     }
 
-    @Step("Display Title Course Отображение названия курса")
+    @Step("Title Course display")
     public void displayTitleCourse(String courseName) {
         courseTitle.shouldHave(text(courseName));
         courseTitle.shouldBe(visible, Duration.ofSeconds(10));
         Selenide.sleep(1000);
     }
 
-    @Step("Exists 'Upload' Course Material Button  Присутствует кнопка 'Upload' в разделе материалов курса")
+    @Step("The button 'Upload' in the Course Material section")
     public void existsUploadCourseMaterialButton(String searchInput) {
         uploadCourseMaterialButton.shouldHave(text(searchInput));
     }
 
-    @Step("Not Exists 'Upload' Course Material Button  Отсутствует кнопка 'Upload' в разделе материалов курса")
+    @Step("No button 'Upload' in the Course Material section")
     public void notExistsUploadCourseMaterialButton(String value) {
         uploadCourseMaterialButton.shouldNotBe(Condition.visible);
     }
 
-    @Step("View course description  Посмотреть описание курса")
+    @Step("View the course description")
     public void viewAboutThisCourse() {
         aboutThisCourse.should(exist);
     }
 
-    @Step("Click the Title from search result  Кликнуть на название курса из результата поиска")
+    @Step("Click the Title from the search result")
     public void tyknutTut() {
         firstCourse.click();
         Selenide.sleep(1000);
     }
 
-    @Step("Download the document from the link  Cкачать документ по ссылке")
-    // TODO При повторном прохождении теста через некоторое время тест падает, потому что ссылка не найдена.
-    //  Если перейти по ссылке в ручном режиме, появляется такая надпись 'This URL has exired'.
-    //  Для успешного прохождения тесте необходимо получить новую ссылку
+    @Step("DDownload the document from the link")
+    // TODO When retaking the test after a while, the test fails because the link was not found.
+    //  If you follow the link in a manual mode, the following message appears 'This URL has expired'
+    //  ДTo successfully pass the test, you need to get a new link
 
     public void downloadDocument() throws FileNotFoundException {
         //SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687046400000/8-lu83W2yV-wZsn1D2wz5w/IJcnFqy97LD82i8ghBWFqExgvj86iZD2CGD3_qYyBQXjFQfgZb-AC72qyxpVPOKka21Og3jtu2p4hywzg7ei_1rzWtVlG_6nQeTPOCaIqZM/IHgbt0lNJbJ8x5wo8Kl6JINKcs2CC13PtdgruBT_8gE']");
         //SelenideElement  downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687104000000/gRPxrT3XXHIofVD63wALUw/rI4Bxb6bgpV1X0sjwbZqPmPAmg95LqPte4vbUqZDWsTR_v0lb7NsBR0ZGGWTasg1epJ1XSvOpC0_iQkpyFbCzG-B9NhPE9rWcF4x5EzXGXgj8B5wRONwwqpybDBxnhgB/t3vNfpb7zOWLHbeBH7pBYPXay5hr-ZWRk8WMSo3-kI0']");
-        SelenideElement downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687104000000/Vtin4dk_FdY0zETKBRsDIA/c79i21d83A-NPaHxQnhiI8c9j-NQFo9UuipcSu_3ljyjCIqErkGfGr_V9CTdhgmf4rTs9brr9pSOOnPJCrNBCyRq1bsFCDFx5JyWW1ye2vI/BmG09gqiNk1VwAlSc586w-_doQu82Vd8LPd5XuB5NpY']");
+        //SelenideElement downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687104000000/Vtin4dk_FdY0zETKBRsDIA/c79i21d83A-NPaHxQnhiI8c9j-NQFo9UuipcSu_3ljyjCIqErkGfGr_V9CTdhgmf4rTs9brr9pSOOnPJCrNBCyRq1bsFCDFx5JyWW1ye2vI/BmG09gqiNk1VwAlSc586w-_doQu82Vd8LPd5XuB5NpY']");
+        SelenideElement downloadDocument = Selenide.$("a[href='https://v5.airtableusercontent.com/v1/18/18/1687377600000/Z0JIlWAYorcGe1_dNCbMmQ/elM8UTmrjTjwTOhOImINe-b9CUXEAcVzxRm0o3_3kfBpOED04xFkfVOhT03IwfaphCAZSlnWngbwoy5nCZpQ0py7KW36Lju9A1DIGUh7oYQeXeKrOdsAH_JZexk1KpEW/E5lXOioGWa_PgUmao8gPWdyil4H5D7X6jKqdKtXGU00']");
 
         File downloadedFile = downloadDocument.download();
         if (downloadedFile.exists()) {

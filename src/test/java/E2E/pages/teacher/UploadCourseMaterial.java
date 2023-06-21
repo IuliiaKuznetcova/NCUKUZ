@@ -16,23 +16,23 @@ public class UploadCourseMaterial {
     private SelenideElement uploadDocumentField = $x("//*[@id=\"upload-course-material-form-Document-1880928548\"]");
     private SelenideElement uploadCourseMaterialButton = $x("(//button[normalize-space()='Upload'])[1]");
 
-    @Step("Display titel 'Upload course material'  Отображение названия 'Upload course material'")
+    @Step("Display the title 'Upload course material'")
     public void displayuploadCourseMaterialTitel() {
         uploadCourseMaterialTitel.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Enter Document name Введение названия документа")
+    @Step("Enter Document name")
     public void enterDocumentName(String courseName) {
         documentNameField.shouldBe(visible, Duration.ofSeconds(10)).setValue(courseName);
     }
 
-    @Step("Upload  Document")
+    @Step("Upload Document")
     public void uploadDocument(String filePath) {
         //String filePath = "E:/Autotesting/NCUKUZ/src/test/resources/123.png";
         uploadDocumentField.sendKeys(filePath);
     }
 
-    @Step("Click the button 'Save' Нажать кнопку 'Save'")
+    @Step("Click the button 'Save'")
     public void clickUploadBatton() {
         uploadCourseMaterialButton.shouldBe(visible, Duration.ofSeconds(10)).click();
         Selenide.sleep(5000);

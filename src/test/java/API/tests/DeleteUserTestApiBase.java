@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class DeleteUserTestApiBase extends ApiBase {
     String endpoint = "/users/";
 
-    //String email = "carlton.corkery@hotmail.com";
+    //String email = "medochan@chan.com";
     @BeforeMethod
     public void successfulCreateUserApiAndUi() {
         ValidUserCredentials requestBody = ValidUserCredentials.builder()

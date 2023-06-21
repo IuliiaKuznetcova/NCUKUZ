@@ -24,7 +24,7 @@ public class SignUpPage {
     private SelenideElement signUpButtonInRegistrForm = $x("(//a[@id='sw-sign-up-submit-btn'])[1]");
     private SelenideElement signInButtonInRegistrForm = $x("((//a[normalize-space()='Sign In'])[1]");
 
-    @Step("registration of a new student регистрация нового студента")
+    @Step("Registration of a new student регистрация нового студента")
     public void registrationOfANewStudent(String fullNameValue, String emailValue, String passwordValue) {
         signUpForm.shouldBe(visible, Duration.ofSeconds(10));
         selectRoleStudent();
@@ -35,59 +35,59 @@ public class SignUpPage {
         signUpButtonInRegistrForm.click();
     }
 
-    @Step("select Role Student Выбрать роль студента")
+    @Step("Select Role 'Student'")
     public void selectRoleStudent() {
         selectYourRole.shouldBe(visible, Duration.ofSeconds(10)).click();
         roleStudent.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Enter Password Введение пароля")
+    @Step("Enter Password")
     public void enterPassword(String passwordValue) {
         passwordField.shouldBe(visible, Duration.ofSeconds(10)).setValue(passwordValue);
     }
 
-    @Step("Enter FullName Введение полного имени")
+    @Step("Enter FullName")
     public void enterFullName(String emailValue) {
         fullNameField.shouldBe(visible, Duration.ofSeconds(10)).setValue(emailValue);
     }
 
-    @Step("Enter Email Введение эмейла")
+    @Step("Enter Email")
     public void enterEmail(String emailValue) {
         emailField.shouldBe(visible, Duration.ofSeconds(10)).setValue(emailValue);
     }
 
-    @Step("Display Registration Form  Отображение формы регистрации")
+    @Step("Registration Form Display")
     public void DisplaySignUpForm() {
         signUpForm.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Click Dropdown Select Your Role Нажать на выпадающее меню 'Select Your Role'")
+    @Step("Click Dropdown menu 'Select Your Role'")
     public void clickSelectYourRoleDropdown() {
         selectYourRole.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Select Role Teacher Выбрать роль учителя")
+    @Step("Select Role 'Teacher'")
     public void selectRoleTeacher() {
         selectYourRole.shouldBe(visible, Duration.ofSeconds(10)).click();
         roleTeacher.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Click on the Button 'Show Password' Кликнуть на иконку 'Show Password'")
+    @Step("Click the Button 'Show Password'")
     public void showPasswordEye() {
         showPasswordEyeButton.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Сheck 'I Agree To' Поставить галочку в поле 'I Agree To'")
+    @Step("Tick 'I Agree To' Поставить галочку в поле 'I Agree To'")
     public void clickIAgreeToСheckbox() {
         iAgreeToСheckbox.shouldBe(visible, Duration.ofSeconds(10)).setSelected(true);
     }
 
-    @Step("Click the button Sign Up in the Registry Form Нажатие кнопки Sign Up в форме регистрации")
+    @Step("Click the button 'Sign Up' in the Registry Form")
     public void clickSignUpButtonInRegistrForm() {
         signUpButtonInRegistrForm.shouldBe(visible, Duration.ofSeconds(10)).click();
     }
 
-    @Step("Click the button 'Sign In' in the Registry Form Нажатие кнопки Sign In в форме регистрации")
+    @Step("Click the button 'Sign In' in the Registry Form ")
     public void clickSignInButtonInRegistrForm() {
         signInButtonInRegistrForm.shouldBe(visible, Duration.ofSeconds(10)).click();
     }

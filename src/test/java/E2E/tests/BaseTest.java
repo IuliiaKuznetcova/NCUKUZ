@@ -62,4 +62,5 @@ public class BaseTest {
     protected GuestHomePage guestHomePage = new GuestHomePage();
     protected StudentCourseList studentCourseList = new StudentCourseList();
     protected StudentCourseDetails studentCourseDetails = new StudentCourseDetails();
+    protected StudentMyProfile studentMyProfile = new StudentMyProfile();
 }

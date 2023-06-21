@@ -15,11 +15,10 @@ public class CreateUserRegressionApiTest extends ApiBase {
     Faker faker = new Faker();
     public String fullName = faker.name().fullName();
     public String email = faker.internet().emailAddress();
-  /*  String fullName = faker.name().fullName();
-    String email = faker.internet().emailAddress();*/
 
 
     final static String BASE_URI = "https://jere237.softr.app";
+    //final static String BASE_URI = "https://erich416.softr.app/";
 
     @Test
     public void successfulCreateUserApiAndUi() {

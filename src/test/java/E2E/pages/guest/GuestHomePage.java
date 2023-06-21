@@ -12,32 +12,32 @@ public class GuestHomePage {
 
     //  private SelenideElement signInButton = $x("//*[@id=\"home-header-non-logged-in\"]/header/div/div/div/div/a[1]");
 
-    @Step("Click the button 'Sign In' on the HomePage Нажатие кнопки 'Sign In' на главной странице")
+    @Step("Click the button 'Sign In' on the HomePage")
     public void clickSignInButton() {
         signInButton.click();
     }
 
-    @Step("Click the button 'Sign Up' on the HomePage Нажатие кнопки 'Sign Up' на главной странице")
+    @Step("Click the button 'Sign Up' on the HomePage")
     public void clickSignUpButton() {
         signUpButton.click();
     }
 
-    @Step("Button 'Sign in' not display  Не отображается кнопка 'Sign In'")
+    @Step("Button 'Sign in' not displayed")
     public void notExistSignInButton() {
         signInButton.shouldNotBe(Condition.visible);
     }
 
-    @Step("Button 'Sign in' display Oтображается кнопка Sign In")
+    @Step("Button 'Sign in' is displayed")
     public void ExistSignInButton() {
         signInButton.shouldBe(Condition.visible);
     }
 
-    @Step("Button 'Sign Up' not display  Не отображается кнопка Sign Up")
+    @Step("Button 'Sign Up' is not displayed")
     public void notExistSignUpButton() {
         signUpButton.shouldNotBe(Condition.visible);
     }
 
-    @Step("Button 'Sign Up' display Oтображается кнопка Sign Up")
+    @Step("Button 'Sign Up' is displayed")
     public void ExistSignUpButton() {
         signUpButton.shouldBe(Condition.visible);
     }

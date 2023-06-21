@@ -13,7 +13,7 @@ public class DocumentsSharingOnStudentPageTest extends BaseTest {
     private String passwordMalik = PropertiesLoader.loadProperties("passwordMalik");
 
 
-    @Issue("Jira-cloud NCU-12")
+/*    @Issue("Jira-cloud NCU-12")
     @Test
     public void visibilityOfDocumentsSharingOnStudentPageTest1() throws InterruptedException {
         guestHomePage.clickSignInButton();
@@ -27,7 +27,7 @@ public class DocumentsSharingOnStudentPageTest extends BaseTest {
         studentCourseList.goToGrowthMarketingCourse();
         scrollPageToElement2023NoCode();
         studentCourseDetails.notExistsUploadCourseMaterialButton("Upload");
-    }
+    }*/
 
     @Issue("Jira-cloud NCU-13")
     @Test

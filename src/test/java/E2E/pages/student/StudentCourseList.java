@@ -56,19 +56,19 @@ public class StudentCourseList {
         }
     }
 
-    @Step("Display 'Our courses' title Отображение названия 'Our courses'")
+    @Step("Display of 'Our courses' title")
     public void displayOurCoursesTitle(String title) {
         ourCourseTitle.shouldBe(Condition.text(title));
     }
 
-    @Step("Go to 'Growth Marketing' course  Переход к курсу 'Growth Marketing'")
+    @Step("Go to 'Growth Marketing' course")
     public void goToGrowthMarketingCourse() {
         growthMarketingCourseButton.shouldBe(visible, Duration.ofSeconds(10));
         // growthMarketingCourseButton.shouldHave(text(expectedText));
         growthMarketingCourseButton.click();
     }
 
-    @Step("Fill field search Заполнение поля поиска")
+    @Step("Fill field search")
     public void fillFieldSearch(String courseName) {
         fieldSearchOnCourseList.click();
         fieldSearchOnCourseList.shouldBe(visible, Duration.ofSeconds(10));
@@ -76,14 +76,14 @@ public class StudentCourseList {
         fieldSearchOnCourseList.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Display search Result with Exact Data  Отображение результата поиска с точными данными")
+    @Step("Display of 'Our courses' title ")
     public void searchResultDisplayExactData(String courseName) {
         searchResultOnCourseList.shouldHave(Condition.text(courseName));
         //searchResultOnCourseList.shouldHave(exactText(courseName));
         // TODO для поиска по конкретному слову нужно найти локатор коллекции
     }
 
-    @Step("Go to a course from a search result  Переход к курсу из результата поиска")
+    @Step("Go to a course from a search result")
     public void goToCourseFromSearchResult(String courseName) {
         searchResultOnCourseList.shouldBe(visible, Duration.ofSeconds(10));
         searchResultOnCourseList.shouldHave(Condition.text(courseName));

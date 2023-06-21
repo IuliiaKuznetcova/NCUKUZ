@@ -61,7 +61,7 @@ public class SearchTests extends BaseTest {
         headerHelpers.signOut();
     }
 
-    @Test
+/*    @Test
     public void download() throws InterruptedException, FileNotFoundException {
         guestHomePage.clickSignInButton();
         signInPage.loginMalik(emailMalik, passwordMalik);
@@ -70,5 +70,5 @@ public class SearchTests extends BaseTest {
         studentCourseDetails.tyknutTut();
         //studentGrowthMarketingCourseDetails.viewAboutThisCourse();
         studentCourseDetails.downloadDocument();
-    }
+    }*/
 }

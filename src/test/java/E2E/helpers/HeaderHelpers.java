@@ -45,12 +45,12 @@ public class HeaderHelpers {
         studentDirectoryButton.click();
     }
 
-    @Step("Display the button 'Student Directory' отображение кнопки 'Student Directory'")
+    @Step("Display the button 'Student Directory'")
     public void displayStudentDirectoryButton() {
         studentDirectoryButton.shouldBe(visible, Duration.ofSeconds(10));
     }
 
-    @Step("Display the button 'Avatar' отображение кнопки 'Avatar'")
+    @Step("Display the button 'Avatar'")
     public void displayAvatarButton() {
         avatarButton.shouldBe(Condition.visible);
     }
@@ -89,5 +89,11 @@ public class HeaderHelpers {
     public void aboutUsButtonClick() {
         aboutUnsButton.shouldBe(visible, Duration.ofSeconds(10));
         aboutUnsButton.click();
+    }
+
+    @Step("Go to 'My Profile")
+    public void goToMyProfile() {
+        avatarButtonClick();
+        myProfileButtonClick();
     }
 }

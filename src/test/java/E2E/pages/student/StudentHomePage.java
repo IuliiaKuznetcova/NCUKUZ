@@ -2,6 +2,7 @@ package E2E.pages.student;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import java.time.Duration;
@@ -17,13 +18,14 @@ public class StudentHomePage {
     private SelenideElement coursesLIstButton = $x("//*[@id=\"home_header4\"]/header/div/div/div[1]/div/div/div/a");
 
 
-    @Step("Go to Courses Page  Переход к странице Courses")
-    public void goToCoursesPage() throws InterruptedException {
+    @Step("Go to Courses Page")
+    public void goToCoursesPage()  {
         coursesButton.click();
+        Selenide.sleep(2000);
         coursesButton.shouldBe(visible, Duration.ofSeconds(10));
-        Thread.sleep(1000);
+        Selenide.sleep(1000);
         coursesLIstButton.click();
-        Thread.sleep(1000);
+        Selenide.sleep(1000);
         // coursesLIstButton.shouldBe(visible, Duration.ofSeconds(10));
     }
 

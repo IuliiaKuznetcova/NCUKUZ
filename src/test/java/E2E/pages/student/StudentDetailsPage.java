@@ -14,22 +14,22 @@ public class StudentDetailsPage {
     private SelenideElement professorFullName = $x("(//div[@class='MuiBox-root css-blhqza'])[1]");
     private SelenideElement backToDirectoryButton = $x("(//a[contains(@type,'button')][normalize-space()='Back to directory'])[2]");
 
-    @Step("Display student name with exact data  отображение имени студента с точными данными")
+    @Step("Display student’s name with exact data")
     public void displayStudenFullNameExactData(String searchedStudentName) {
         studentFullName.shouldHave(Condition.text(searchedStudentName));
     }
 
-    @Step("Display professor name with exact data  отображение имени профессора с точными данными")
+    @Step("Display professor’s name with exact data")
     public void displayProfessorFullNameExactData(String searchedStudentName) {
         professorFullName.shouldHave(Condition.text(searchedStudentName));
     }
 
-    @Step("Display student name with random data  отображение имени студента с рандомными данными")
+    @Step("Display student’s name with random data")
     public void displayStudenFullNameRandomData(String searchInput) {
         studentFullName.shouldHave(Condition.text(searchInput));
     }
 
-    @Step("Display professor name with random data  отображение имени профессора с рандомными данными")
+    @Step("Display student’s name with random data")
     public void backToStudentDirectory() {
         backToDirectoryButton.shouldBe(visible, Duration.ofSeconds(10));
         backToDirectoryButton.click();

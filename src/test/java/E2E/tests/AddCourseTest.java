@@ -16,7 +16,9 @@ public class AddCourseTest extends BaseTest {
     public void addCourseTest() {
         guestHomePage.clickSignInButton();
         signInPage.loginRoxanne();
+        Selenide.sleep(5000);
         addCoursePage.addCourseButtonClick();
+        Selenide.sleep(5000);
         addCoursePage.displayAddANewCourseForm();
         addCoursePage.enterCourseName("MedMed");
         addCoursePage.selectFaculty();
@@ -34,7 +36,9 @@ public class AddCourseTest extends BaseTest {
     public void addCourseTestWithCheckingTheRoleOfTheTeacher() throws InterruptedException {
         guestHomePage.clickSignInButton();
         signInPage.loginRoxanne();
+        Selenide.sleep(3000);
         addCoursePage.addCourseButtonClick();
+        Selenide.sleep(3000);
         addCoursePage.displayAddANewCourseForm();
         addCoursePage.enterCourseName("RasRas");
         addCoursePage.selectFaculty();
@@ -54,7 +58,9 @@ public class AddCourseTest extends BaseTest {
     public void addCourseTestWithCheckingTheRoleOfTheStudent() throws InterruptedException {
         guestHomePage.clickSignInButton();
         signInPage.loginRoxanne();
+        Selenide.sleep(3000);
         addCoursePage.addCourseButtonClick();
+        Selenide.sleep(3000);
         addCoursePage.displayAddANewCourseForm();
         addCoursePage.enterCourseName("MedMed");
         addCoursePage.selectFaculty();

@@ -18,23 +18,23 @@ public class HomePageHelpers {
     private SelenideElement goToComputerScienceButton = $x("//body[1]/div[1]/div[2]/section[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]");
     private SelenideElement computerSciencePage = $(byText("Computer Science"));
 
-    @Step("Display title 'Professor Spotlight' отображение заголовка 'Professor Spotlight'")
+    @Step("Display the title 'Professor Spotlight'")
     public void displayTitleProfessorSpotlight() {
         // checkOutOurCoursesTitle.shouldHave(Condition.text("Professor spotlight"));
         professorSpotlightTittle.should(be(visible)).shouldHave(Condition.text("Professor spotlight"));
     }
 
-    @Step("Display title 'Check out our courses' отображение заголовка 'Check out our courses'")
+    @Step("Display the title 'Check out our courses'")
     public void displayCheckOutOurCoursesTitle() {
         checkOutOurCoursesTitle.should(be(visible)).shouldHave(Condition.text("Check out our courses"));
     }
 
-    @Step("Display title 'NoCode University at a glance' отображение заголовка 'NoCode University at a glance'")
+    @Step("Display the title 'NoCode University at a glance'")
     public void displaynoCodeUniversityAtAGlanceTitle() {
         noCodeUniversityAtAGlanceTitle.should(be(visible)).shouldHave(Condition.text("NoCode University at a glance"));
     }
 
-    @Step("Go to 'Courses Page'  Переход к странице Courses")
+    @Step("Go to 'Courses Page'")
     //public void goToCoursesPage(String courseName) {
     public void goToCoursesPage() {
         //computerScienceTitle.shouldHave(Condition.text(courseName));
